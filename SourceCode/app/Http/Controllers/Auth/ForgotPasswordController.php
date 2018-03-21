@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
+use Auth, Password;
 
 class ForgotPasswordController extends Controller
 {
@@ -18,7 +19,7 @@ class ForgotPasswordController extends Controller
     |
     */
 
-    use SendsPasswordResetEmails;
+    use SendsPasswordResetEmails;  //sử dụng hàm sendResetLinkEmail() trong SendsPasswordResetEmails.php để gửi mail reset mà mình nhập vào
 
     /**
      * Create a new controller instance.
@@ -27,6 +28,16 @@ class ForgotPasswordController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest');
+        $this->middleware('guest:user');
+    }
+
+    protected function broker() {
+        return Password::broker('users');
+    }
+
+
+    //Hiển thị form nhập email (sẽ gửi mã reset password đến cái email này)
+    public function showLinkRequestForm() {
+        return view('user.account.email');
     }
 }
