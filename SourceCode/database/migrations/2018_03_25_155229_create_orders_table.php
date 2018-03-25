@@ -19,7 +19,7 @@ class CreateOrdersTable extends Migration
             $table->string('delivery_address');
             $table->string('status_order');
             $table->integer('creator');
-            $table->integer('ship_free')->nullable();
+            $table->integer('ship_fee')->nullable();
             $table->integer('member_id')->unsigned();
             $table->integer('user_id')->unsigned();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
