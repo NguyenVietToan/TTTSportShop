@@ -1,6 +1,6 @@
 <?php
 
-//Đăng nhập - Đăng xuất cho admin và admin
+//Đăng nhập - Đăng xuất cho admin và auth\admin
 Route::group(['prefix' => 'member'], function() {
     Route::get('login', ['as' => 'member.getLogin', 'uses' => 'Auth\Admin\AuthAdminController@getLogin']);
     Route::post('login', ['as' => 'member.postLogin', 'uses' => 'Auth\Admin\AuthAdminController@postLogin']);
