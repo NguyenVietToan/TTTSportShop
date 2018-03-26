@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Middleware;
+use Illuminate\Support\Facades\Session;
 
 use Closure;
 
@@ -21,7 +22,7 @@ class Shipper
                 return redirect('/member/login');
             }
         }else{
-            return redirect('/member/login');  //nếu chưa đăng nhập thì khi nhập mọi url request đều được chuyển về trang login
+            return redirect('/member/login');  //nếu chưa đăng nhập thì dù có vào bất cứ cái gì thì nó cũng chuyển về trang login
         }
         return $next($request);
     }
