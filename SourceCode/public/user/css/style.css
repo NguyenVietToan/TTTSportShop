@@ -1,0 +1,57 @@
+/* GLOBAL */
+body {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  margin: 0px;
+  padding: 0px;
+  position: relative;
+  background-color: #fff;
+}
+
+ul li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: #212121;
+}
+
+a:hover {
+  outline: none;
+  text-decoration: none;
+  color: #FF9800;
+}
+
+a:focus {
+  outline: none;
+  outline-offset: 0;
+}
+
+/* --------------------------------------------------- */
+
+/* WRAPPER */
+.wrapper {
+  position: relative;
+  z-index: 0;
+}
+
+/* .wrapper-content {
+  margin-top: 170px;
+}
+
+.main-content {
+  margin-bottom: 40px;
+} */
+ul.breadcrumb {
+  margin-top: 170px;
+}
+
+.zoomContainer {
+  z-index: 9999 !important;
+}
+
+.zoomWindow {
+  z-index: 9999 !important;
+}

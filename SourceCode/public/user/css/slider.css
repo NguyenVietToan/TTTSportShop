@@ -1,0 +1,79 @@
+.mySlider {
+  padding: 0 0 50px;
+  z-index: 1;/*   margin-top: 168px; */
+}
+
+.section-container {
+  padding: 0;
+  position: relative;/*   z-index: 2; */
+}
+
+.item {
+  overflow: hidden;
+  background-attachment: scroll;
+  background-position: 50% 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh; /* tương đương 100%, vh = viewport height, tuy nhiên ở đây nếu để là 100% thì ko được? */
+  display: table;
+  width: 100%;   /* tương đương 100vw, vw = viewport width, ở đây để là 100vw thì vẫn được */
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.carousel-indicators {
+  bottom: 20px;
+}
+
+.carousel-indicators li, .carousel-indicators .active {
+  width: 15px;
+  height: 15px;
+  margin: 3px;
+  border: 2px solid #fff;
+}
+
+.carousel-indicators li {
+  background: #F0F0E9;
+}
+
+.carousel-indicators li:hover {
+  background: #FF9800;
+}
+
+.carousel-indicators li.active {
+  background: #FF9800;
+}
+
+.carousel-inner .item img {
+  max-width: none;
+}
+
+.carousel-control {
+  background-image: none;
+  width: 54px;
+  height: 54px;
+  top: 50%;
+  margin-top: -27px;
+  line-height: 54px;
+  font-size: 80px;
+  opacity: 1;
+  text-shadow: none;
+  z-index: 5;
+  -webkit-transition: all 0.2s ease-in-out 0s;
+  -o-transition: all 0.2s ease-in-out 0s;
+  transition: all 0.2s ease-in-out 0s;
+}
+
+.carousel-control.left {
+  margin-left: 20px;
+  background-image: none;
+}
+
+.carousel-control.right {
+  margin-right: 20px;
+  background-image: none;
+}
+
+.carousel-control:hover {
+  color: #FF9800;
+}

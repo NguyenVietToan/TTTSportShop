@@ -1,0 +1,97 @@
+/* xs */
+
+/* @media (max-width:767px) {
+	.header-top .col-sm-6:first-child {
+		display: inline-block;
+		float: left;
+	}
+
+	.header-top .col-sm-6:last-child {
+		display: inline-block;
+		float: right;
+	}
+
+} */
+
+/* XS Portrait */
+@media (max-width:480px) {
+	.header-top .col-sm-6:first-child {
+		display: block;
+		float: none;
+	}
+
+	.header-top .col-sm-6:last-child {
+		display: block;
+		float: none;
+	}
+
+	.sub-menu, .account {
+		text-align: center;
+	}
+
+	.sub-menu ul li a {
+		padding-right: 15px;
+		padding-left: 0;
+	}
+
+	.sub-menu .nav.nav-pills, .account .nav.nav-pills {
+		display: inline-block;
+	}
+
+	.account.pull-right {
+		float: none !important;
+		text-align: center;
+	}
+
+	.logo, .shopping-cart {
+		text-align: center;
+		width: 100%;
+	}
+
+	.shopping-cart {
+		margin-bottom: 18px;
+	}
+
+	.my-menu {
+		margin-left: 35px;
+	}
+
+	.navbar-toggle {
+		margin-left: 42px;
+		margin-right: 90px;
+	}
+
+	.navbar-collapse {
+		border: 1px solid #fff;
+		box-shadow: none;
+	}
+
+	.navbar-nav {
+		margin: 0;
+	}
+
+	.mainmenu ul.nav > li > a:hover {
+		background: none;
+	}
+
+	.navbar-nav>.open>a:hover {
+		background: none;
+	}
+
+	.navbar-nav>.open>a:focus {
+		color: #FF9800 !important;
+		background: none !important;
+	}
+
+	.mega-menu .mega-menu-column a {
+		color: #fff !important;
+	}
+
+	.mega-menu .mega-menu-column .other {
+		color: #fff !important;
+	}
+
+	/* 	.search {
+			float: left;
+		} */
+}

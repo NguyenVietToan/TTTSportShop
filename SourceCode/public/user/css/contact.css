@@ -1,0 +1,134 @@
+.contact {
+  margin-bottom: 40px;
+}
+
+.breadcrumb {
+  margin-bottom: 30px
+}
+
+.contact h2.title:before {
+  width: 190px;
+  left: 51%;
+}
+
+.contact h2.title, .introduce h2.title {
+  margin: 10px 0 40px !important;
+}
+
+.contact-map {
+  margin-bottom: 50px;
+}
+
+.contact-map iframe {
+  width: 100%;
+  height: 600px;
+}
+
+.contact-message {
+  padding-right: 20px;
+}
+
+.contact-info {
+  padding-left: 20px;
+}
+
+.contact-message h2.title:before, .contact-info h2.title:before {
+  width: 225px;
+  left: 50%;
+}
+
+.social-networks h2.title:before {
+  width: 180px;
+  left: 54%;
+}
+
+.contact textarea {
+  width: 80%;
+  height: 30vh;
+}
+
+.contact .control-group {
+  margin: 0 0 15px 100px;
+}
+
+.contact .contact-form .control-group:last-child {
+  padding-top: 40px;
+  margin-left: 0;
+}
+
+.contact .contact-form .control-group .action {
+  padding-left: 190px;
+}
+
+.action button.submit, .action button.reset {
+  background-color: #3c8dbc;
+  color: #fff;
+  font-weight: 500;
+  margin-right: 15px;
+  border: none !important;
+}
+
+.action button.submit:hover, .action button.reset:hover {
+  background-color: #FF9800;
+  color: #fff;
+  border: none !important;
+}
+
+.contact .control-group > label {
+  width: 20%;
+}
+
+.contact .control-group > input {
+  width: 80%;
+}
+
+.contact .control-group span input {
+  width: 15px;
+  float: left;
+  height: 15px;
+  margin-right: 5px;
+}
+
+.contact .control-group span {
+  line-height: 25px;
+}
+
+.contact-info h2.title {
+  margin-bottom: 30px !important;
+}
+
+.contact-info .address {
+  margin-bottom: 60px;
+}
+
+.contact-info .address li {
+  padding-left: 40px;
+}
+
+.contact-info .social-networks span {
+  width: 40px;
+  color: #fff;
+  font-size: 20px;
+  height: 40px;
+  display: inline-block;
+  text-align: center;
+  border-radius: 50%;
+  line-height: 2.0;
+  margin: 0 15px;
+}
+
+.social-networks .facebook {
+  background-color: #3B5998;
+}
+
+.social-networks .twitter {
+  background-color: #1DA1F2;
+}
+
+.social-networks .youtube {
+  background-color: #FF0000;
+}
+
+.introduce p {
+  font-size: 15px !important;
+}

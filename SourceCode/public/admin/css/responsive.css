@@ -1,0 +1,7 @@
+/* XS Portrait */
+@media (max-width:480px) {
+	.selectGender, .selectSport {
+		padding-right: 0;
+	}
+
+}

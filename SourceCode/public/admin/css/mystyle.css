@@ -1,0 +1,124 @@
+.content-wrapper .content-header {
+	padding-bottom: 9px;
+	margin-bottom: 10px;
+	border-bottom: 1px solid #eee;
+	padding: 35px 25px 15px;
+}
+
+.content-header > .breadcrumb {
+	top: 5px;
+	padding-right: 20px;
+}
+
+.content-wrapper .content {
+	padding: 15px 25px 25px;
+	overflow: auto;
+}
+
+/* nút thêm chung trong các list, thêm các loại */
+a.addItem, button.functionButton {
+	margin-bottom: 20px;
+	background-color: #337ab7;
+	border-color: #337ab7;
+	color: #fff;
+}
+
+a.addItem:hover, button.functionButton:hover {
+	background-color: #FF9800;
+	border-color: #FF9800;
+	color: #fff;
+}
+
+button.functionButton {
+	margin-top: 50px;
+	margin-right: 30px;
+}
+
+button.addItem a {
+	color: #fff;
+}
+
+/* nút lọc (filter) trong list sản phẩm, nút xóa trong trong các list */
+button.filter {
+	margin-left: 0px;
+	color: #fff;
+	background-color: #337ab7;
+	border: none;
+}
+
+button.delete {
+	color: #fff;
+	background-color: #337ab7;
+	border: none;
+}
+
+button.filter:hover, button.delete:hover {
+	color: #fff;
+	background-color: #FF9800;
+}
+
+/* bảng hiển thị danh sách sản phẩm, thể loại... */
+.content table thead tr th {
+	text-align: center;
+}
+
+.table-bordered {
+	margin-top: 10px !important;
+	border-top: 1px solid #d0cece;
+	border-left: 1px solid #d0cece;
+}
+
+.table-bordered thead tr th, .table-bordered tbody tr td {
+	border-bottom: 1px solid #d0cece !important;
+	border-right: 1px solid #d0cece !important;
+}
+
+.table-bordered thead tr th:last-child {
+	border-right: 1px solid #d0cece;
+}
+
+/* ảnh chi tiết của sản phẩm */
+.img-detail {
+	margin-bottom: 10px;
+}
+
+a#del_img {
+	position: relative;
+	top: -45px;
+	left: -15px;
+	border-radius: 20px;
+	width: 10px;
+	height: 25px;
+}
+
+a#del_img i {
+	position: relative;
+	top: -5px;
+	left: -5px;
+}
+
+/* phân trang */
+.pagination {
+	margin-top: 0;
+}
+
+.pagination li a:hover {
+	background-color: #FF9800;
+	color: #fff;
+}
+
+/* search */
+input#search {
+	margin-bottom: 40px;
+	background-color: #cee3f5;
+}
+
+/* dấu hoa thị cho biết trường bắt buộc nhập/chọn */
+.asterisk {
+	font-size: 15px;
+	color: red;
+}
+
+.order-detail .control-label {
+	padding-top: 0 !important;
+}
