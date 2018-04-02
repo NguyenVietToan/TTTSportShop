@@ -73,9 +73,9 @@
 	<div class="container">
 		<div class="row">
 			<div class="col-sm-4">
-				<div class="logo pull-left">
-					<a href="{{ URL('/') }}"><img src="{{ asset('public/user/images/logo2.png') }}" alt="" height="60"></a>
-				</div>
+						<div class="logo inner_page_log">
+							<h1><a class="navbar-brand" href="{{ URL('/') }}"><span>TTT</span> <i>Shop</i></a></h1>
+						</div>
 				<!-- /.logo -->
 			</div>
 
@@ -137,7 +137,7 @@
 <!-- /.header-middle -->
 
 <div class="header-bottom navbar navbar-default navbar-static-top">
-		<div class="row" style="margin: 0">
+		<div class="row" style="margin: 0px ; background: #263238 /*#080808*/;">
 			<div class="my-menu pull-left">
 				<div class="navbar-header">
 		            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -151,7 +151,7 @@
 				<div class="mainmenu" >
 		            <nav class="navbar-collapse collapse">
 			            <ul class="nav navbar-nav">
-						    <li><a href="{{ url('/') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
+						    <li><a href="{{ url('trang-chu') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
 						    <li><a href="{{ url('san-pham') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['product']:Config::get('lang.vi')['product'] }}</a></li>
 		                    <li class="dropdown menu-large">
 		                        <a href="" class="dropdown-toggle" data-toggle="dropdown">{{ (session('lang'))?Config::get('lang.'.session('lang'))['sport']:Config::get('lang.vi')['sport'] }}<b class="caret"></b></a>
@@ -169,9 +169,9 @@
 											        <a href="{{ URL('bo-mon/'.$sport->alias) }}">
 											        	<img src="{{ asset('resources/upload/images/sport/'.$sport->id.'/'.$sport->image) }}">
 											        </a>
-													@foreach ($cates as $cate)
+													<!-- @foreach ($cates as $cate)
 														<li><a class="font13" href="{{ URL('bo-mon/'.$sport->alias.'/'.$cate->alias) }}">{{ $cate->name }}</a></li>
-													@endforeach
+													@endforeach -->
 											    </ul>
 										    </li>
 										</div>
@@ -207,9 +207,9 @@
 											        <a href="{{ URL('thuong-hieu/'.$brand->alias) }}">
 											        	<img src="{{ asset('resources/upload/images/brand/'.$brand->id.'/'.$brand->image) }}">
 											        </a>
-											        @foreach ($cates as $cate)
+											       <!--  @foreach ($cates as $cate)
 														<li><a class="font13" href="{{ URL('thuong-hieu/'.$brand->alias.'/'.$cate->alias) }}">{{ $cate->name }}</a></li>
-													@endforeach
+													@endforeach -->
 											    </ul>
 										    </li>
 										</div>

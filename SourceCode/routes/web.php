@@ -39,8 +39,11 @@ Route::get('address/{type}/{id}', ['as' => 'getAddress', 'uses' => 'AddressContr
 /* ------------------------------------------------------------------------------- */
 //USER
 
+//Trang giới thiệu mở đầu
+Route::get('/', ['as' => 'getIntroIndex', 'uses' => 'WelcomeController@introIndex']);
+
 //Về trang chủ
-Route::get('/', ['as' => 'getHome', 'uses' => 'WelcomeController@index']);
+Route::get('/trang-chu', ['as' => 'getHome', 'uses' => 'WelcomeController@index']);
 
 
 //Thay đổi ngôn ngữ

@@ -4,7 +4,7 @@
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Trang chủ</title>
-
+	<base href="{{asset('')}}">
 	<!-- JS Library -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -41,7 +41,9 @@
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/user/css/slider.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/user/css/contact.css') }}">
 	<link rel="stylesheet" type="text/css" href="{{ asset('public/user/css/responsive.css') }}">
-
+	
+	<link href="public/user/css/style_footer.css" rel="stylesheet" type="text/css" media="all" />
+	
 	<!-- Thiết lập các đường dẫn -->
 	<script type="text/javascript">
 		BASE_URL = "{{ url('/') }}";

@@ -147,6 +147,10 @@ class WelcomeController extends Controller {
 
 //----------------------------------------------------------------------------------------------------
 
+	//Gọi trang giới thiệu mở đầu
+	public function introIndex(){
+		return view('user.index');
+	}
 
 	//Đổ dữ liệu ra trang chủ
 	public function index ()

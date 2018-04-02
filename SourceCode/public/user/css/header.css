@@ -76,8 +76,12 @@ header {
 
 /* header-middle */
 .header-middle {
-  background-color: #455A64;
+  /*background-color: #455A64;*/
+  /*background: url('../../source/images/banner3.jpg') no-repeat top center;*/
+  background: url('../../source/images/banner-mid.jpg') no-repeat top center;
   border-bottom: 1px solid #11252F;
+  background-position: center;
+  height: 180px;
 }
 
 .header-middle .logo {

@@ -93,7 +93,7 @@ class MemberController extends Controller
 
 		$data['member']       = $member;
 		$data['birthday']     = $birthday;
-        $data['year_arr']     = Config::get('constants.years');
+        $data['year_arr']     = Config::get('consLogintants.years');
         $data['month_arr']    = Config::get('constants.months');
         $data['day_arr']      = Config::get('constants.days');
 		$data['provinces']    = $provinces;

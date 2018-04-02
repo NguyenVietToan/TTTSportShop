@@ -1,7 +1,7 @@
 @extends('user.master')
 @section('content')
 
-<div id="mySlider" class="carousel slide mySlider" data-ride="carousel" data-wrap="true" data-interval="5000">
+<!-- <div id="mySlider" class="carousel slide mySlider" data-ride="carousel" data-wrap="true" data-interval="5000">
     <div class="section-container">
         <div>
             <ol class="carousel-indicators">
@@ -35,10 +35,10 @@
             </a>
         </div>
     </div>
-</div>
+</div> -->
 <!-- /#mySlider -->
 
-<div class="main-content">
+<div class="main-content" style="margin-top: 50px;">
 	<div class="container">
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 main-left">
