@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-        <b>THC</b>
+        <b>NVT</b>
     </div>
-    <strong>Copyright &copy; 2017</strong>
+    <strong>Copyright &copy; 2018</strong>
 </footer>

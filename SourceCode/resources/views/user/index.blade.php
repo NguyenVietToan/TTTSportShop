@@ -305,7 +305,7 @@
 	<div class="footer_agileinfo_w3">
 		<div class="footer_inner_info_w3ls_agileits">
 			<div class="col-md-4 footer-left">
-				<h2><a href="index.html"><span>TTT</span> Shop </a></h2>
+				<h2><a href="{{URL('/')}}"><span>TTT</span> Shop </a></h2>
 				<p>Shop chuyên bán giày chính hãng của các thương hiệu nổi tiếng trên thế giới</p>
 				<ul class="social-nav model-3d-0 footer-social social two">
 					<li>

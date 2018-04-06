@@ -15,7 +15,7 @@
                     <p>Sản phẩm</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-pie-graph"></i>
+                    <i class="ion ion-filing"></i>
                 </div>
                 <a href="{{ route('admin.product.getList') }}" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
             </div>
@@ -105,7 +105,7 @@
                     <p>Đơn hàng mới</p>
                 </div>
                 <div class="icon">
-                    <i class="ion ion-bag"></i>
+                    <i class="ion ion-ios-copy"></i>
                 </div>
                 <a href="{{ route('admin.order.getList') }}" class="small-box-footer">Chi tiết <i class="fa fa-arrow-circle-right"></i></a>
             </div>

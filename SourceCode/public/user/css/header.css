@@ -21,7 +21,7 @@ header {
 }
 
 .header-top li a:hover {
-  color: #FF9800;
+  color: #fb383b;
   background: none;
 }
 
@@ -36,7 +36,7 @@ header {
 }
 
 .header-top ul.profile.dropdown-menu a:hover {
-  color: #FF9800;
+  color: #fb383b;
   background: none;
 }
 
@@ -99,7 +99,7 @@ header {
 }
 
 .sub-menu li a:hover {
-  color: #FF9800;
+  color: #fb383b;
   background: none;
 }
 
@@ -125,7 +125,7 @@ header {
 }
 
 .shopping-cart li.dropdown > a:hover {
-  color: #FF9800;
+  color: #fb383b;
   background: none;
 }
 
@@ -214,7 +214,7 @@ header {
 
 .shopping-cart .button-wrap a.btn:hover {
   color: #fff;
-  background-color: #FF9800;
+  background-color: #fb383b;
 }
 
 /* --------------------------------------------------- */
@@ -256,7 +256,7 @@ li.menu-large {
 }
 
 .mainmenu ul.nav > li > a:hover {
-  color: #FF9800;
+  color: #fb383b /*#FF9800*/;
   background-color: #F5F5F5;
 }
 
@@ -357,7 +357,7 @@ li.mega-menu-column img {
 }
 
 .mega-menu .mega-menu-column a:hover {
-  color: #FF9800 !important;
+  color: #fb383b /*#FF9800*/ !important;
 }
 
 .mega-menu img {

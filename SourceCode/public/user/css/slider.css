@@ -37,11 +37,11 @@
 }
 
 .carousel-indicators li:hover {
-  background: #FF9800;
+  background: #fb383b;
 }
 
 .carousel-indicators li.active {
-  background: #FF9800;
+  background: #fb383b;
 }
 
 .carousel-inner .item img {
@@ -75,5 +75,5 @@
 }
 
 .carousel-control:hover {
-  color: #FF9800;
+  color: #fb383b;
 }

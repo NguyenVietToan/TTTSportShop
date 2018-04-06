@@ -243,8 +243,8 @@
 			<div class="search">
 				<div class="col-xs-3 col-md-2">
 					<form class="form-search top-search" action="{{ route('getSearch') }}">
-	                    <input type="text" class="input-medium search-query" name="keyword" placeholder="{{ (session('lang'))?Config::get('lang.'.session('lang'))['search_here']:Config::get('lang.vi')['search_here'] }}" value="">
-
+	                    <input type="text" class="input-medium search-query" name="keyword" placeholder="{{ (session('lang'))?Config::get('lang.'.session('lang'))['search_here']:Config::get('lang.vi')['search_here'] }}"value="" >
+	 
 	                </form>
 				</div>
 			</div>

@@ -62,7 +62,7 @@
                 <!-- mini logo for sidebar mini 50x50 pixels -->
                 <span class="logo-mini"><b>TP</b>S</span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>Tuấn Phương</b> Sports</span>
+                <span class="logo-lg"><b>TTT</b> Shop</span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -144,9 +144,9 @@
 
         <footer class="main-footer">
             <div class="pull-right hidden-xs">
-                <b>THC</b>
+                <b>NVT</b>
             </div>
-            <strong>Copyright &copy; 2017</strong>
+            <strong>Copyright &copy; 2018</strong>
         </footer>
 
     </div>

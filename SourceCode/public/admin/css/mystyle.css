@@ -24,8 +24,8 @@ a.addItem, button.functionButton {
 }
 
 a.addItem:hover, button.functionButton:hover {
-	background-color: #FF9800;
-	border-color: #FF9800;
+	background-color: #fb383b;
+	border-color: #fb383b;
 	color: #fff;
 }
 
@@ -54,7 +54,7 @@ button.delete {
 
 button.filter:hover, button.delete:hover {
 	color: #fff;
-	background-color: #FF9800;
+	background-color: #fb383b;
 }
 
 /* bảng hiển thị danh sách sản phẩm, thể loại... */
