@@ -168,7 +168,7 @@ class WelcomeController extends Controller {
 		$promotion_news = DB::table('news')->select('news.*', 'news.id as n_id')->join('news_categories as ncate', 'news.ncate_id', '=', 'ncate.id')->where('ncate.id', '=', '2')->orderBy('n_id', 'desc')->take(3)->get();
 
 		//Tin tuyển dụng
-		$recruitment_news = DB::table('news')->select('news.*', 'news.id as n_id')->join('news_categories as ncate', 'news.ncate_id', '=', 'ncate.id')->where('ncate.id', '=', '3')->orderBy('n_id', 'desc')->take(3)->get();
+		$recruitment_news = DB::table('news')->select('news.*', 'news.id as n_id')->join('news_categories as ncate', 'news.ncate_id', '=', 'ncate.id')->where('ncate.id', '=', '3')->orderBy('n_id', 'desc')->take(3)->get(); 
 
 		//Tư vấn
 		$advisory_news = DB::table('news')->select('news.*', 'news.id as n_id')->join('news_categories as ncate', 'news.ncate_id', '=', 'ncate.id')->where('ncate.id', '=', '4')->orderBy('n_id', 'desc')->take(5)->get();

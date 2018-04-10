@@ -41,7 +41,9 @@
 <div class="main-content" style="margin-top: 50px;">
 	<div class="container">
 		<div class="row">
+			<!-- .main-left -->
 			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 main-left">
+				<!-- .promotion-news -->
 				<div class="promotion-news">
 					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['promotion_news']:Config::get('lang.vi')['promotion_news'] }}</h2>
 					@foreach ($promotion_news as $promo)
@@ -52,7 +54,8 @@
 					@endforeach
 				</div>
 				<!-- /.promotion-news -->
-
+				
+				<!-- .sport-news -->
 				<div class="sport-news">
 					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['sport_news']:Config::get('lang.vi')['sport_news'] }}</h2>
 					<ul>
@@ -65,6 +68,7 @@
 				</div>
 				<!-- /.sport-news -->
 
+				<!-- .advisory -->
 				<div class="advisory">
 					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['advisory']:Config::get('lang.vi')['advisory'] }}</h2>
 					<ul>
@@ -75,6 +79,7 @@
 				</div>
 				<!-- /.advisory -->
 
+				<!-- .recruitment -->
 				<div class="recruitment">
 					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['recruitment']:Config::get('lang.vi')['recruitment'] }}</h2>
 					<ul>
@@ -87,6 +92,7 @@
 				</div>
 				<!-- /.recruitment -->
 
+				<!-- #small-Slider -->
 				<div id="small-Slider" class="carousel slide mySlider" data-ride="carousel" data-wrap="true">
 				    <div class="section-container">
 				        <div>
@@ -126,15 +132,17 @@
 					@foreach ($newest_products as $newest_prod)
 						<div class="col-xs-12 col-sm-12 col-md-4 col-lg-4">
 							<div class="product-info text-center">
+							
 								<a href="{{ route('productDetail', $newest_prod->id) }}"><img src="{{ asset('resources/upload/images/product/small/'.$newest_prod->id.'/'.$newest_prod->image) }}" /></a>
-
-								<p class="pro-name"><a href="{{ route('productDetail', $newest_prod->id) }}">{{ $newest_prod->name }}</a></p>
-
 								@if ($newest_prod->sale_price == null)
 									<p style="padding-bottom: 10px"></p>
 									<p class="price">{{ number_format($newest_prod->price, 0, ',', '.') }} VNĐ</p>
 								@else
 									<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
+
+								<p class="pro-name"><a href="{{ route('productDetail', $newest_prod->id) }}">{{ $newest_prod->name }}</a></p>
+
+								
 									<div>
 										<p class="old-price">{{ number_format($newest_prod->price, 0, ',', '.') }} VNĐ</p>
                                     	<p class="sale-price">{{ number_format($newest_prod->sale_price, 0, ',', '.') }} VNĐ</p>

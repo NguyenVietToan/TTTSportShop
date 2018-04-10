@@ -306,6 +306,13 @@ h2.title {
 .product-info img {
   width: 100%;
   border-bottom: 1px solid #E0E0E0;
+  transition: transform 0.2s;
+}
+
+.product-info img:hover {
+  transform: scale(1.1);
+  -ms-transform: scale(1.1); /* IE 9 */
+  -webkit-transform: scale(1.1); /* Safari 3-8 */
 }
 
 .pro-name {
@@ -346,8 +353,9 @@ color: #fff;
   overflow: hidden;
   position: absolute;
   top: -4px;
-  right: -4px
+  right: -4px;
 }
+
 
 .ribbon {
   color: #fff;
