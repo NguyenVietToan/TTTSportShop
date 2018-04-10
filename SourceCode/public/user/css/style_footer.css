@@ -123,14 +123,14 @@ ul.social-nav.model-3d-0.footer-social.social.two {
 }
 .address-right h6{
     color: #FFFFFF;
-    font-size: 0.9em;
+    font-size: 1.1em;
     margin: 0;
     font-weight: 600;
     letter-spacing: 1px;
 }
 .address-right p{
     margin: 1em 0 0 0;
-    font-size: .9em;
+    font-size: 1.1em;
     color: #565656;
 }
 .address-right p a{
@@ -283,6 +283,19 @@ color: #2fdab8;
     font-weight: 700;
 }
 /*-- //footer --*/
+
+#toTop {
+    display: none;
+    text-decoration: none;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    overflow: hidden;
+    width: 34px;
+    height: 34px;
+    border: none;
+    text-indent: 100%;
+    background: url(../../source/images/move-top.png) no-repeat 0px 0px;
 
     /*--responsive--*/
 @media(max-width:1680px){
@@ -469,6 +482,8 @@ color: #2fdab8;
     .sign-gd {
         margin: 2em 0px;
     }
+
+
     .sign-gd.flickr-post {
         margin: 2em 0 0 0;
     }

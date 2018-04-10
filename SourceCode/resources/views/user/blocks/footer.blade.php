@@ -35,11 +35,11 @@
 					<div class="col-md-6 sign-gd">
 						<h4>Thông tin <span>Website</span> </h4>
 						<ul>
-							<li><a href="{{route('getHome')}}">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="404.html">Services</a></li>
-							<li><a href="404.html">Short Codes</a></li>
-							<li><a href="contact.html">Contact</a></li>
+							<li><a href="{{route('getHome')}}">Trang chủ</a></li>
+							<li><a href="about.html">Sản phẩm</a></li>
+							<li><a href="404.html">Khuyến mãi</a></li>
+							<li><a href="404.html">Tin tức</a></li>
+							<li><a href="contact.html">Liên hệ</a></li>
 						</ul>
 					</div>
 
@@ -89,3 +89,20 @@
 			<p class="copy-right-w3ls-agileits">&copy 2018 TTT Shop. All rights reserved | Design by <a href="#">Nguyễn Viết Toàn</a></p>
 		</div>
 	</div>
+
+<!-- <a href="#trang-chu" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a> -->
+	
+<!-- start-smoth-scrolling -->
+	<script type="text/javascript" src="public/source/js/move-top.js"></script>
+	<script type="text/javascript" src="public/source/js/easing.js"></script>
+	<script type="text/javascript">
+		jQuery(document).ready(function ($) {
+			$(".scroll").click(function (event) {
+				event.preventDefault();
+				$('html,body').animate({
+					scrollTop: $(this.hash).offset().top
+				}, 1000);
+			});
+		});
+	</script>
+	<!-- //end-smoth-scrolling -->

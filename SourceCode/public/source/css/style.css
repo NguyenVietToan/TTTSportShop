@@ -953,6 +953,19 @@ button.top_shoe_cart {
 /*-//item_slider-*/
 
 /*--/newsletter--*/
+.big_shop_now a{
+	border-radius: 35px;
+	font-size: 30px; 
+	padding: 10px 20px; 
+	background-color: #fb383b; 
+}
+
+.big_shop_now a:hover {
+	background-color: #FF0000;
+	color: #ffffff;
+	padding: 20px 30px;
+}
+
 .newsletter_w3layouts_agile {
     padding: 3em 7em;
 }

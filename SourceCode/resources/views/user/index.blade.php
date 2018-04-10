@@ -47,8 +47,8 @@
 						</ul>
 					</div>
 					<div id="cd-search" class="cd-search">
-						<form action="#" method="post">
-							<input name="Search" type="search" placeholder="Click enter after typing...">
+						<form action="{{ route('getSearch') }}">
+							<input name="Search" type="search" placeholder="Tìm kiếm ở đây...">
 						</form>
 					</div>
 				</div>
@@ -65,7 +65,7 @@
 							<div class="banner-top2">
 								<div class="banner-info-wthree">
 									<h3>Nike</h3>
-									<p>See how good they feel.</p>
+									<p>Trải nghiệm tuyệt vời.</p>
 
 								</div>
 
@@ -75,7 +75,7 @@
 							<div class="banner-top3">
 								<div class="banner-info-wthree">
 									<h3>Heels</h3>
-									<p>For All Walks of Life.</p>
+									<p>Phù hợp mọi tầng lớp.</p>
 
 								</div>
 
@@ -85,7 +85,7 @@
 							<div class="banner-top">
 								<div class="banner-info-wthree">
 									<h3>Sneakers</h3>
-									<p>See how good they feel.</p>
+									<p>Mang lại đẳng cấp thời trang.</p>
 
 								</div>
 
@@ -95,7 +95,7 @@
 							<div class="banner-top1">
 								<div class="banner-info-wthree">
 									<h3>Adidas</h3>
-									<p>For All Walks of Life.</p>
+									<p>Hành trang cuộc sống.</p>
 
 								</div>
 
@@ -127,10 +127,9 @@
 			<div class="style-image-1_info">
 				<div class="style-grid-2-text_info">
 					<h3>Nike DOWNSHIFTER</h3>
-					<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-						tempora incidunt ut labore et dolore .</p>
+					<p>Nike là một trong những thương hiệu giày hàng đầu thế giới được thành lập vào năm 1964. Đến nay đã tung ra hàng chục siêu phẩm đình đám như Nike LunarGlide, Nike Downshifter, Nike Kyrie... đều được đưa vào danh sách những đôi giày được yêu thích nhất.</p>
 					<div class="shop-button">
-						<a href="shop.html">Shop Now</a>
+						<a href="shop.html">Xem thêm</a>
 					</div>
 				</div>
 			</div>
@@ -151,36 +150,34 @@
 			<div class="col-md-6 grids_sec_2_left">
 				<div class="grid_sec_info">
 					<div class="style-grid-2-text_info">
-						<h3>Sneakers</h3>
-						<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-							tempora incidunt ut labore .</p>
+						<h3>Heels</h3>
+						<p>Đối với nữ doanh nhân, lợi thế của những đôi giày cao gót rất rõ rệt, khiến nó trở thành trợ thủ đắc lực trong việc làm đẹp hàng ngày của chị em, nổi trội hơn, tự tin hơn và thành công nhiều hơn trong kinh doanh.</p>
 						<div class="shop-button">
-							<a href="shop.html">Shop Now</a>
+							<a href="shop.html">Xem thêm</a>
 						</div>
 					</div>
 				</div>
 				<div class="style-image-2">
-					<img src="public/source/images/b4.jpg" alt="shoe">
+					<img src="public/source/images/b7.jpg" alt="shoe">
 					<div class="style-grid-2-text">
-						<h3>Air force</h3>
+						<h3>Pumps</h3>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-6 grids_sec_2_left">
 
 				<div class="style-image-2">
-					<img src="public/source/images/b3.jpg" alt="shoe">
+					<img src="public/source/images/b5.jpg" alt="shoe">
 					<div class="style-grid-2-text">
-						<h3>Air force</h3>
+						<h3>Lace-up</h3>
 					</div>
 				</div>
 				<div class="grid_sec_info last">
 					<div class="style-grid-2-text_info">
-						<h3>Sneakers</h3>
-						<p>Itaque earum rerum hic tenetur a sapiente delectus reiciendis maiores alias consequatur.sed quia non numquam eius modi
-							tempora incidunt ut labore .</p>
+						<h3>Giày tây</h3>
+						<p>Giày tây được phái mạnh yêu thích với phong cách lịch lãm, sang trọng và hiện đại. Giày tây nam phù hợp với nơi công sở hay gặp mặt đối tác, khẳng định vị thế quý ông. Dòng giày nam cao cấp này được ưa chuộng từ kiểu dáng tới chất liệu.</p>
 						<div class="shop-button two">
-							<a href="shop.html">Shop Now</a>
+							<a href="shop.html">Xem thêm</a>
 						</div>
 					</div>
 				</div>
@@ -192,7 +189,7 @@
 	<!-- /Properties -->
 	<div class="mid_slider_w3lsagile">
 		<div class="col-md-3 mid_slider_text">
-			<h5>Some More Shoes</h5>
+			<h5>Sản phẩm khác</h5>
 		</div>
 		<div class="col-md-9 mid_slider_info">
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
@@ -205,6 +202,38 @@
 				</ol>
 				<div class="carousel-inner" role="listbox">
 					<div class="item active">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g7.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g8.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g9.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g10.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><img src="public/source/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
 								<div class="thumbnail"><img src="public/source/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
@@ -229,42 +258,10 @@
 								<div class="thumbnail"><img src="public/source/images/g6.jpg" alt="Image" style="max-width:100%;"></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail"><img src="public/source/images/g9.jpg" alt="Image" style="max-width:100%;"></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g1.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g2.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g3.jpg" alt="Image" style="max-width:100%;"></div>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><img src="public/source/images/g4.jpg" alt="Image" style="max-width:100%;"></div>
+								<div class="thumbnail"><img src="public/source/images/g10.jpg" alt="Image" style="max-width:100%;"></div>
 							</div>
 						</div>
 					</div>
@@ -291,8 +288,8 @@
 		<div class="col-sm-4">
 			
 		</div>
-		<div class="col-sm-4 text-center" >
-				<a href="{{route('getHome')}}" class="btn btn-danger" style="border-radius: 35px;font-size: 30px; padding: 20px;">Mua sắm ngay</a>
+		<div class="col-sm-4 text-center big_shop_now" >
+				<a href="{{route('getHome')}}" class="btn btn-danger">Mua sắm ngay</a>
 
 		</div>
 	<div class="col-sm-4" >
@@ -307,7 +304,7 @@
 			<div class="col-md-4 footer-left">
 				<h2><a href="{{URL('/')}}"><span>TTT</span> Shop </a></h2>
 				<p>Shop chuyên bán giày chính hãng của các thương hiệu nổi tiếng trên thế giới</p>
-				<ul class="social-nav model-3d-0 footer-social social two">
+				<ul class="social-nav model-3d-0 footer-social social two" style="padding-left: 0px;">
 					<li>
 						<a href="#" class="facebook">
 							<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
@@ -337,25 +334,25 @@
 			<div class="col-md-8 footer-right">
 				<div class="sign-grds">
 					<div class="col-md-6 sign-gd">
-						<h4>Our <span>Information</span> </h4>
-						<ul>
-							<li><a href="{{route('getHome')}}">Home</a></li>
-							<li><a href="about.html">About</a></li>
-							<li><a href="404.html">Services</a></li>
-							<li><a href="404.html">Short Codes</a></li>
-							<li><a href="contact.html">Contact</a></li>
+						<h4>Thông tin <span>website</span> </h4>
+						<ul style="padding-left: 0px;">
+							<li><a href="{{route('getHome')}}">Trang chủ</a></li>
+							<li><a href="about.html">Sản phẩm</a></li>
+							<li><a href="404.html">Khuyến mãi</a></li>
+							<li><a href="404.html">Tin tức</a></li>
+							<li><a href="contact.html">Liên hệ</a></li>
 						</ul>
 					</div>
 
 					<div class="col-md-6 sign-gd-two">
-						<h4>Store <span>Information</span></h4>
+						<h4>Thông tin <span>cửa hàng</span></h4>
 						<div class="address">
 							<div class="address-grid">
 								<div class="address-left">
 									<i class="fa fa-phone" aria-hidden="true"></i>
 								</div>
 								<div class="address-right">
-									<h6>Phone Number</h6>
+									<h6>Số điện thoại</h6>
 									<p>+84 964 600 170</p>
 								</div>
 								<div class="clearfix"> </div>
@@ -365,7 +362,7 @@
 									<i class="fa fa-envelope" aria-hidden="true"></i>
 								</div>
 								<div class="address-right">
-									<h6>Email Address</h6>
+									<h6>Địa chỉ email</h6>
 									<p>Email :<a href="mailto:nguyenviettoan161095@gmail.com"> nguyenviettoan161095@gmail.com</a></p>
 								</div>
 								<div class="clearfix"> </div>
@@ -375,7 +372,7 @@
 									<i class="fa fa-map-marker" aria-hidden="true"></i>
 								</div>
 								<div class="address-right">
-									<h6>Location</h6>
+									<h6>Vị trí</h6>
 									<p>75 Giải Phóng, Q. Hai Bà Trưng, Hà Nội, Việt Nam.
 
 									</p>
@@ -393,13 +390,13 @@
 			<p class="copy-right-w3ls-agileits">&copy 2018 TTT Shop. All rights reserved | Design by <a href="#">Nguyễn Viết Toàn</a></p>
 		</div>
 	</div>
-	</div>
+	
 	<!-- //footer -->
     <a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->
 	<script type="text/javascript" src="public/source/js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
-	<!-- /nav -->
+	<!-- <!-- /nav -->
 	<script src="public/source/js/modernizr-2.6.2.min.js"></script>
 	<script src="public/source/js/classie.js"></script>
 	<script src="public/source/js/demo1.js"></script>
@@ -419,7 +416,7 @@
 			}
 		});
 	</script>
-	<!-- //cart-js -->
+	<!-- //cart-js --> 
 	<!--search-bar-->
 	<script src="public/source/js/search.js"></script>
 	<!--//search-bar-->
