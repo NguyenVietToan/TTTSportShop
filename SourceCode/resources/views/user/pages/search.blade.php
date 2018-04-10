@@ -1,10 +1,11 @@
 @extends('user.master')
 @section('content')
 
+<!-- .breadcrumb -->
 <div class="container">
 	<ul class="breadcrumb">
-		<li><a href="">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
-		<li class="active">Tìm kiếm</li>
+		<li><a href="{{route('getHome')}}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['search']:Config::get('lang.vi')['search'] }}</li>
 	</ul>
 	<!-- /.breadcrumb -->
 
@@ -12,13 +13,14 @@
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			<h2 class="title text-center" style="margin-left: 0; margin-right: 0">Kết quả tìm kiếm</h2>
 
+			<!-- .search amount -->
 			<div class="row">
 				<div class="search-result">
 					<p class="pull-left" style="margin-bottom: 25px; margin-left: 15px;">Tìm thấy tổng cộng <span><b>{{ $count_products }}</b></span> sản phẩm cho từ khóa "<span><b>{{ $keyword }}</b></span>"</p>
 					<div class="clear-fix"></div>
 				</div>
 			</div>
-
+			<!-- /.search amount -->
 
 			<div class="row">
 				@foreach ($products as $newest_prod)
@@ -26,7 +28,7 @@
 						<div class="product-info text-center">
 							<a href="{{ route('productDetail', $newest_prod->id) }}"><img src="{{ asset('resources/upload/images/product/small/'.$newest_prod->id.'/'.$newest_prod->image) }}" /></a>
 
-							<p class="pro-name"><a href="{{ route('productDetail', $newest_prod->id) }}">{{ $newest_prod->name }}</a></p>
+							<p class="pro-name"><a href="{{ route('productDetail', $newest_prod->id) }}">{{ $newest_prod->pr_name }}</a></p>
 
 							@if ($newest_prod->sale_price == null)
 								<p style="padding-bottom: 10px"></p>
@@ -39,6 +41,7 @@
 								</div>
 							@endif
 
+							<!-- .action -->
 							<div class="action @if(count($newest_prod->sizes) <= 0) no-size @endif" pro_id="{{ $newest_prod->id }}"  style="position:relative">
 								@if(count($newest_prod->sizes) > 0)
 									<div class="size show-size">
@@ -80,9 +83,10 @@
 			</div>
 
 			<div class="row">
-				<ul class="pagination">
+				<!-- <ul class="pagination">
 					{!! $products->appends(['keyword' => $keyword])->render() !!}
-				</ul>
+				</ul> -->
+				{{$products->links()}}
 			</div>
 		</div>
 	</div>
