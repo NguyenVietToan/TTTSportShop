@@ -42,6 +42,7 @@ Route::get('address/{type}/{id}', ['as' => 'getAddress', 'uses' => 'AddressContr
 //Trang giới thiệu mở đầu
 Route::get('/', ['as' => 'getIntroIndex', 'uses' => 'WelcomeController@introIndex']);
 
+
 //Về trang chủ
 Route::get('/trang-chu', ['as' => 'getHome', 'uses' => 'WelcomeController@index']);
 

@@ -5,20 +5,22 @@
 	<div class="container">
 		<ul class="breadcrumb">
     		<li>
-      			<a href="#">Trang chủ</a>
+      			<a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a>
       			<span class="divider"></span>
     		</li>
     		<li>
-      			<a href="#">Sản phẩm</a>
+      			<a href="{{ url('san-pham') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['product']:Config::get('lang.vi')['product'] }}</a>
       			<span class="divider"></span>
     		</li>
     		<li class="active">{{ $product_detail->name }}</li>
   		</ul>
   		<!-- /.breadcrumb -->
 
+		<!-- .product-details -->
 		<div class="product-details">
 			<div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-5">
+					<!-- .product-images -->
 					<div class="product-images">
 						<div class="xzoom-container">
 							<img class="xzoom5" id="xzoom-magnific" width="400" src="{{ asset('resources/upload/images/product/small/'.$product_detail->id.'/'.$product_detail->image) }}" xoriginal="{{ asset('resources/upload/images/product/large/'.$product_detail->id.'/'.$product_detail->image) }}" />
@@ -54,6 +56,7 @@
 								@endif
               				</div>
 
+							<!-- .wishlist -->
               				<div class="wishlist">
 								@if(Auth::check())
 									@if($product_detail->is_liked == 1)
@@ -108,8 +111,9 @@
 										<li><a href="#reviews" data-toggle="tab">Đánh giá ({{ $count_review }})</a></li>
 									</ul>
 								</div>
-
+								
 								<div class="tab-content">
+									<!-- #introduction -->
 									<div class="tab-pane fade active in" id="introduction" >
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 			            					{!! $product_detail->description !!}
@@ -117,6 +121,7 @@
 									</div>
 									<!-- /#introduction -->
 
+									<!-- #specification -->
 									<div class="tab-pane fade" id="specification" >
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 											{!! $product_detail->info !!}
@@ -124,6 +129,7 @@
 									</div>
 									<!-- /#specification -->
 
+									<!-- #reviews -->
 									<div class="tab-pane fade" id="reviews" >
 										<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 											@foreach ($reviews as $review)
@@ -136,7 +142,7 @@
 													<p>{{ $review->review_content }}</p>
 												</div>
 											@endforeach
-											<p style="color: #FF9800; font-size: 15px;"><b>Đánh giá của bạn</b></p>
+											<p style="color: #fb383b; font-size: 15px;"><b>Đánh giá của bạn</b></p>
 
 											<form action="{{ route('addReview') }}" method="post">
 												{{ csrf_field() }}
@@ -162,6 +168,7 @@
 		</div>
 		<!-- /.product-details -->
 
+		<!-- .product-similar -->
 		<div class="product-similar row">
 			<h2 class="title text-center">Sản phẩm tương tự</h2>
 			@foreach ($similar_products as $newest_prod)
@@ -222,7 +229,10 @@
 			@endforeach
 		</div>
 
-		<div class="row paginate pull-left" style="margin-top: 20px;">@include('pagination.paging', ['paginator' => $similar_products])</div>
+		<div class="row paginate pull-left" style="margin-top: 20px;">
+			@include('pagination.paging', ['paginator' => $similar_products])
+			<!-- {{$similar_products->links()}} -->
+		</div>
 		<!-- /.product-similar -->
 
 	</div>

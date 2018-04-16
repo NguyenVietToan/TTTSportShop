@@ -173,7 +173,7 @@ class WelcomeController extends Controller {
 		//Tư vấn
 		$advisory_news = DB::table('news')->select('news.*', 'news.id as n_id')->join('news_categories as ncate', 'news.ncate_id', '=', 'ncate.id')->where('ncate.id', '=', '4')->orderBy('n_id', 'desc')->take(5)->get();
 
-		//Sản phẩm mới nhất
+		//Sản phẩm mới nhất (có id lớn nhất)
 		$newest_products = DB::table('products')->orderBy('id', 'desc')->take(6)->get();
 
 		foreach ($newest_products as $newest_prod) {
@@ -385,7 +385,7 @@ class WelcomeController extends Controller {
 		$data['gender'] = $request->gender;
 		$data['sprice'] = $request->sprice;
 		$data['eprice'] = $request->eprice;
-		// dd($data['sport']);
+		// dd($data['sport']);  //hàm dd($var) để kiểm tra json
 		return $data;
 	}
 
