@@ -336,11 +336,11 @@
 					<div class="col-md-6 sign-gd">
 						<h4>Thông tin <span>website</span> </h4>
 						<ul style="padding-left: 0px;">
-							<li><a href="{{route('getHome')}}">Trang chủ</a></li>
-							<li><a href="about.html">Sản phẩm</a></li>
-							<li><a href="404.html">Khuyến mãi</a></li>
-							<li><a href="404.html">Tin tức</a></li>
-							<li><a href="contact.html">Liên hệ</a></li>
+							<li><a href="{{route('getHome')}}">Trang chủ</a></li>    <!-- route(alias) -->
+							<li><a href="{{ url('san-pham') }}">Sản phẩm</a></li>    <!-- url(dia_chi) -->
+							<li><a href="{{ route('getSaleProduct') }}">Khuyến mãi</a></li>
+							<li><a href="{{ route('getNews') }}">Tin tức</a></li>
+							<li><a href="{{ route('getContact') }}">Liên hệ</a></li>
 						</ul>
 					</div>
 

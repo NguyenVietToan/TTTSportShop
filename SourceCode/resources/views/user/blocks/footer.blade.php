@@ -36,10 +36,10 @@
 						<h4>Thông tin <span>Website</span> </h4>
 						<ul>
 							<li><a href="{{route('getHome')}}">Trang chủ</a></li>
-							<li><a href="about.html">Sản phẩm</a></li>
-							<li><a href="404.html">Khuyến mãi</a></li>
-							<li><a href="404.html">Tin tức</a></li>
-							<li><a href="contact.html">Liên hệ</a></li>
+							<li><a href="{{ url('san-pham') }}">Sản phẩm</a></li>
+							<li><a href="{{ route('getSaleProduct') }}">Khuyến mãi</a></li>
+							<li><a href="{{ route('getNews') }}">Tin tức</a></li>
+							<li><a href="{{ route('getContact') }}">Liên hệ</a></li>
 						</ul>
 					</div>
 

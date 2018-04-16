@@ -126,6 +126,8 @@
 			<!-- /.main-left -->
 
 			<div class="col-xs-12 col-sm-6 col-md-9 col-lg-9 main-right">
+
+				<!-- .newest-product -->
 				<div class="newest-product">
 					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['newsest_product']:Config::get('lang.vi')['newsest_product'] }}</h2>
 
@@ -134,14 +136,15 @@
 							<div class="product-info text-center">
 							
 								<a href="{{ route('productDetail', $newest_prod->id) }}"><img src="{{ asset('resources/upload/images/product/small/'.$newest_prod->id.'/'.$newest_prod->image) }}" /></a>
-								@if ($newest_prod->sale_price == null)
-									<p style="padding-bottom: 10px"></p>
-									<p class="price">{{ number_format($newest_prod->price, 0, ',', '.') }} VNĐ</p>
-								@else
-									<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 
 								<p class="pro-name"><a href="{{ route('productDetail', $newest_prod->id) }}">{{ $newest_prod->name }}</a></p>
 
+								@if ($newest_prod->sale_price == null)
+									<p style="padding-bottom: 10px"></p>
+									<p class="price">{{ number_format($newest_prod->price, 0, ',', '.') }} VNĐ</p>  
+									{{-- 0 chữ số thập phân, dấu ',' để ngăn cách phần thực và thập phân, dấu '.' để phân phần thực --}}
+								@else
+									<div class="ribbon-wrapper"><div class="ribbon sale">Sale</div></div>
 								
 									<div>
 										<p class="old-price">{{ number_format($newest_prod->price, 0, ',', '.') }} VNĐ</p>
@@ -188,10 +191,10 @@
 							</div>
 						</div>
 					@endforeach
-
 				</div>
 				<!-- /.newest-product -->
 
+				<!-- .category-tab -->
 				<div class="category-tab cates">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<ul class="nav nav-tabs">
@@ -279,6 +282,7 @@
 				</div>
 				<!-- /.category-tab -->
 
+				<!-- .category-tab sports -->
 				<div class="category-tab sports">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<ul class="nav nav-tabs">
@@ -366,6 +370,7 @@
 				</div>
 				<!-- /.category-tab -->
 
+				<!-- /.category-tab brands -->
 				<div class="category-tab brands">
 					<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
 						<ul class="nav nav-tabs">

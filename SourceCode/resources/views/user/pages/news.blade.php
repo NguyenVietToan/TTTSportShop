@@ -4,11 +4,8 @@
 <div class="main-content">
 	<div class="container">
   		<ul class="breadcrumb">
-    		<li>
-      			<a href=""><i class="fa fa-home" aria-hidden="true"></i>  Trang chủ</a>
-      			<span class="divider"></span>
-    		</li>
-    		<li class="active">Tin tức</li>
+    		<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['news']:Config::get('lang.vi')['news'] }}</li>
   		</ul>
   		<!-- /.breadcrumb -->
 
