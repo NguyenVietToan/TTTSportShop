@@ -1,5 +1,5 @@
 <div class="news-page">
-	<h2 class="title text-center">Tin tức</h2>
+	<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['news']:Config::get('lang.vi')['news'] }}</h2>
 	<div class="news-list filter">
 		@foreach ($all_news as $news)
 		<div class="news-item">

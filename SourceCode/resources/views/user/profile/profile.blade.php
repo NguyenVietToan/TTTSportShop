@@ -4,7 +4,7 @@
 <section id="my-profile">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
+            <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
             <li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['account_management']:Config::get('lang.vi')['account_management'] }}</li>
         </ul>
         <!-- /.breadcrums -->

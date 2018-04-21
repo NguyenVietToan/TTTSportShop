@@ -4,17 +4,14 @@
 <div class="delivery-address">
 	<div class="container">
 		<ul class="breadcrumb">
-    		<li>
-      			<a href="#">Trang chủ</a>
-      			<span class="divider"></span>
-    		</li>
-    		<li class="active">Thanh toán</li>
+    		<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['checkout']:Config::get('lang.vi')['checkout'] }}</li>
   		</ul>
   		<!-- /.breadcrumb -->
 
   		<div class="row">
   			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-  				<h2 class="title text-center checkout">Thanh toán</h2>
+  				<h2 class="title text-center checkout">{{ (session('lang'))?Config::get('lang.'.session('lang'))['checkout']:Config::get('lang.vi')['checkout'] }}</h2>
   				<!-- /.title text-center -->
   			</div>
   		</div>

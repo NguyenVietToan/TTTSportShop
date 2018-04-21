@@ -12,7 +12,7 @@
 		<div class="row">
 			<div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
 				<div class="sidebar-left">
-					<h2>Loại tin</h2>
+					<h2>{{ (session('lang'))?Config::get('lang.'.session('lang'))['news_cate']:Config::get('lang.vi')['news_cate'] }}</h2>
 					<div class="name">
 						<ul class="nav nav-pills nav-stacked">
 							@foreach ($newscates as $ncate)
@@ -34,7 +34,7 @@
 
 			<div class="col-xs-12 col-sm-6 col-md-9 col-lg-9" id="updateNewsDiv">
 				<div class="news-page">
-					<h2 class="title text-center">Tin tức</h2>
+					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['news']:Config::get('lang.vi')['news'] }}</h2>
 
 					<div class="news-list">
 						@foreach ($all_news as $news)

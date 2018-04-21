@@ -3,7 +3,7 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Trang chủ</title>
+	<title>TTT Shop</title>
 	<base href="{{asset('')}}">
 	<!-- JS Library -->
 	<script src="https://code.jquery.com/jquery-3.2.1.js"></script>

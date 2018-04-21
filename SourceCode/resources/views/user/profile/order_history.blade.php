@@ -4,8 +4,8 @@
 <section id="my-profile">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">Trang chủ</a></li>
-            <li><a href="{{ route('getAccount') }}">Quản lý tài khoản</a></li>
+            <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
+            <li><a href="{{ route('getAccount') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['account_management']:Config::get('lang.vi')['account_management'] }}</a></li>
             <li class="active">Đơn hàng của bạn</li>
         </ul>
         <!-- /.breadcrums -->

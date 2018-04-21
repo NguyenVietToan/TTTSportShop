@@ -4,7 +4,7 @@
 <section id="update-profile">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
+            <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
             <li><a href="{{ route('getAccount') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['account_management']:Config::get('lang.vi')['account_management'] }}</a></li>
             <li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['update_profile']:Config::get('lang.vi')['update_profile'] }}</li>
         </ul>
@@ -12,14 +12,23 @@
 
         <div class="row">
             @include('user.profile.left_menu')
-
+			
             <form action="{{ route('updateProfile') }}" method="POST" enctype="multipart/form-data">
 	            <input type="hidden" name="_token" value="{{ csrf_token() }}">
 	            <input type="hidden" name="id" value="{{ Auth::id() }}">
 	            <input type="hidden" name="email" value="{{ Auth::user()->email }}">
 	            <div class="col-xs-12 col-sm-6 col-md-7 col-md-push-1">
 	                <h2 class="title text-center" style="margin: 0 0 30px;">{{ (session('lang'))?Config::get('lang.'.session('lang'))['update_profile']:Config::get('lang.vi')['update_profile'] }}</h2>
-
+					
+					@if (count($errors) > 0)
+            			<div class="error alert alert-danger">
+               			<ul>
+                    		@foreach ($errors->all() as $error)
+                        		<li>{{ $error }}</li>
+                    		@endforeach
+                		</ul>
+            			</div>
+        			@endif
 	                @if (Session::has('flash_message'))
 			            <div class="message alert alert-{{ Session::get('flash_level') }}">
 			                <p class="text-center">{{ Session::get('flash_message') }}</p>

@@ -4,11 +4,8 @@
 <div class="inner-header">
 	<div class="container">
 		<ul class="breadcrumb">
-    		<li>
-      			<a href=""><i class="fa fa-home" aria-hidden="true"></i>  Trang chủ</a>
-      			<span class="divider"></span>
-    		</li>
-    		<li class="active">Đăng nhập</li>
+      			<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['login']:Config::get('lang.vi')['login'] }}</li>
   		</ul>
   		<!-- /.breadcrumb -->
 		<div class="clearfix"></div>
@@ -24,7 +21,7 @@
 				<form action="{{ route('postLogin') }}" method="post" class="form-horizontal" role="form" style="margin-bottom: 70px;">
 					<input type="hidden" name="_token" value="{{ csrf_token() }}">
 
-					<h2 class="title text-center">Đăng nhập</h2>
+					<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['login']:Config::get('lang.vi')['login'] }}</h2>
 					<div class="form-group">
 						<label>Email *</label>
 						<input type="email" class="form-control" name="email">

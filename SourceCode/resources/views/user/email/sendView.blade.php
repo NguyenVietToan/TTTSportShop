@@ -1,1 +1,1 @@
-Để xác nhận email <a href="{{ route('sendEmailDone', ["email" => $user->email, "verifyToken" => $user->verifyToken]) }}">bấm vào đây</a>
+Cảm ơn bạn đã đăng ký. Để xác nhận email <a href="{{ route('sendEmailDone', ["email" => $user->email, "verifyToken" => $user->verifyToken]) }}">bấm vào đây</a>

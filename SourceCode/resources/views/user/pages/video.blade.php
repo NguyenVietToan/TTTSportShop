@@ -4,11 +4,8 @@
 <div class="main-content">
 	<div class="container">
 		<ul class="breadcrumb">
-			<li>
-				<a href="#">Trang chủ</a>
-				<span class="divider"></span>
-			</li>
-			<li class="active">Video</li>
+		<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['video']:Config::get('lang.vi')['video'] }}</li>
 		</ul>
 		<!-- /.breadcrumb -->
 
@@ -16,7 +13,7 @@
 			<div class="col-xs-12 col-sm-12 col-md-3 col-lg-3">
 				<div class="sidebar-left">
 					<div class="video-filter list-group">
-						<h2>Thể loại video</h2>
+						<h2>{{ (session('lang'))?Config::get('lang.'.session('lang'))['video_cate']:Config::get('lang.vi')['video_cate'] }}</h2>
 						<div class="name">
 							<ul class="nav nav-pills nav-stacked">
 							@foreach ($videocates as $vcate)

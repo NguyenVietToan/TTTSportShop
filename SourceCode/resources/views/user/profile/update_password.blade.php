@@ -4,7 +4,7 @@
 <section id="my-profile">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">Trang chủ</a></li>
+            <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
             <li><a href="{{ route('getAccount') }}">Quản lý tài khoản</a></li>
             <li class="active">Đổi mật khẩu</li>
         </ul>

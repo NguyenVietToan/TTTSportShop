@@ -5,13 +5,10 @@
 	<div class="container">
 		<ul class="breadcrumb">
 			<li>
-				<a href="{{ route('getHome') }}">Trang chủ</a>
-				<span class="divider"></span>
-			</li>
-			<li>
-				<a href="{{ route('getVideo') }}">Video</a>
-				<span class="divider"></span>
-			</li>
+				<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active"><a href="{{ url('video') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['video']:Config::get('lang.vi')['video'] }}</a>
+      			<span class="divider"></span>
+    		</li>
 			<li class="active">{{ $video->title }}</li>
 		</ul>
 		<!-- /.breadcrumb -->
@@ -28,7 +25,7 @@
 
 			<div class="col-xs-12 col-sm-6 col-md-4 col-lg-4 col-md-push-1">
 				<div class="panel panel-default">
-                    <div class="panel-heading"><b>Video cùng loại</b></div>
+                    <div class="panel-heading" style="font-size:18px;"><b>Video cùng loại</b></div>
                     <div class="panel-body">
 	                    @foreach ($similar_videos as $svideo)
 	                    	<div class="row similar-video video">

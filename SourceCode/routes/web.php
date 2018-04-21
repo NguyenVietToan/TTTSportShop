@@ -32,7 +32,7 @@ Route::get('schema/drop-table', function() {
 
 
 /* ------------------------------------------------------------------------------- */
-// Địa chỉ: type ở đây là province, district hoặc ward và id là các id tương ứng id_province, id_district, id_ward
+//Lấy địa chỉ: type ở đây là province, district hoặc ward và id là các id tương ứng id_province, id_district, id_ward
 Route::get('address/{type}/{id}', ['as' => 'getAddress', 'uses' => 'AddressController@getAddress']);
 
 

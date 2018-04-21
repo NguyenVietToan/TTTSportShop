@@ -8,7 +8,7 @@ use App\Size;
 
 class ProfileController extends Controller
 {
-    //Hiển thị thông tin tài khoản ở phần trang chính
+    //Hiển thị thông tin tài khoản ở phần trang chính. Thông tin account đã được lưu trong Auth
     public function getAccount () {
         $ward         = DB::table('ward')->where('wardid', '=', Auth::user()->wardid)->first();
         $district     = DB::table('district')->where('districtid', '=', $ward->districtid)->first();
@@ -49,10 +49,20 @@ class ProfileController extends Controller
         $id             = Auth::id();
         $this->validate($request,
             [
-                'name'    => 'required'
+                'name'        => 'required|max:120',
+                'email'       => 'required|email',
+                'address'     => 'required',
+                'phone'       => 'required|min:10|numeric'
             ],
             [
-                'name.required'    => 'Vui lòng nhập tên của bạn'
+                'name.required'        => 'Vui lòng nhập tên của bạn',
+                'email.required'       => 'Vui lòng nhập email của bạn',
+                'email.email'          => 'Không đúng định dạng email',
+                'email.unique'         => 'Email này đã có người sử dụng',
+                'address.required'     => 'Vui lòng nhập địa chỉ của bạn',
+                'phone.required'       => 'Vui lòng nhập số điện thoại của bạn',
+                'phone.min'            => 'Số điện thoại phải có ít nhất 10 chữ số',
+                'phone.numeric'        => 'Số điện thoại chỉ bao gồm chữ số'
             ]
         );
         $user           = User::find($id);
@@ -69,7 +79,7 @@ class ProfileController extends Controller
             mkdir($img_dir);
         }
         $img_current = $img_dir . '/' . $request->img_current;  //đường dẫn tới hình ảnh hiện tại
-        if (!empty($request->file('avatar'))) { //nếu tồn tại file ảnh mới
+        if (!empty($request->file('avatar'))) { //nếu tồn tại file ảnh mới trong form update
             $img_ext = $request->file('avatar')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
             if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
                 $file_name    = $request->file('avatar')->getClientOriginalName();
@@ -139,7 +149,7 @@ class ProfileController extends Controller
     //Xem chi tiết đơn hàng
     public function getOrderDetail ($id) {
         $order_details = DB::table('order_details as od')
-                         ->select('od.*', 'pr.price', 'pr.sale_price', 'pr.name', 'o.status_order')
+                         ->select('od.*', 'pr.price', 'pr.sale_price', 'pr.name as pr_name', 'o.status_order')
                          ->join('products as pr', 'od.pro_id', '=', 'pr.id')
                          ->join('orders as o', 'od.order_id', '=', 'o.id')
                          ->where('o.id', '=', $id)
@@ -174,7 +184,7 @@ class ProfileController extends Controller
         //nếu kiểm tra mật khẩu cũ vừa nhập không giống mật khẩu đang lưu trong DB
         if (!Hash::check($oldPassword, Auth::user()->password)) {
             return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Mật khẩu cũ bạn vừa nhập không phải mật khẩu hiện tại']);
-        } elseif (!Hash::check($newPassword, $re_newPassword)) {
+        } elseif ($newPassword != $re_newPassword) {
             return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Xác nhận mật khẩu mới chưa đúng']);
         } else {
             $request->user()

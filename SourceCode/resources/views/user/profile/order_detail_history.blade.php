@@ -4,7 +4,7 @@
 <section id="my-profile">
     <div class="container">
         <ul class="breadcrumb">
-            <li><a href="{{ url('/') }}">Trang chủ</a></li>
+            <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> Trang chủ</a></li>
             <li><a href="{{ route('getAccount') }}">Quản lý tài khoản</a></li>
             <li><a href="{{ route('getOrder') }}">Đơn hàng của bạn</a></li>
             <li class="active">Chi tiết</li>
@@ -33,7 +33,7 @@
                         @foreach($order_details as $od)
                             <tr class="odd gradeX" align="center">
                                 <td>{{ $stt++ }}</td>
-                                <td>{{ $od->name }}</td>
+                                <td>{{ $od->pr_name }}</td>
                                 <td>{{ $od->value }}</td>
                                 <td>{{ $od->qty }}</td>
                                 <td>{{ $od->real_price }}</td>

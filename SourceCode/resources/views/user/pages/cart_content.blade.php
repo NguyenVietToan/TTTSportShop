@@ -1,5 +1,5 @@
 <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-	<h2 class="title text-center">Giỏ hàng</h2>
+	<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['cart']:Config::get('lang.vi')['cart'] }}</h2>
 	@if (Session::has('flash_message'))
 	<div class="message alert alert-{{ Session::get('flash_level') }}">
 		<p class="text-center">{{ Session::get('flash_message') }}</p>
@@ -11,7 +11,7 @@
 		<span style="font-size: 14px">Giỏ hàng chưa có sản phẩm nào</span>
 		<img src="{{ asset('public/user/images/menu_logo.gif') }}" alt="">
 	</div>
-	<a href="{!! url('/') !!}" class="btn btn-default pull-right functionButton">Tiếp tục mua sắm</a>
+	<a href="{{route('getHome')}}" class="btn btn-default pull-right functionButton">Tiếp tục mua sắm</a>
 
 	@else
 
@@ -73,7 +73,7 @@
 			<td><span class="total-amount pull-right">{{ $total }} VNĐ</span></td>
 		</tr>
 	</table>
-	<a href="{!! url('/') !!}" class="btn btn-default pull-left functionButton" >Tiếp tục mua hàng</a>
+	<a href="{{ route('getHome') }}" class="btn btn-default pull-left functionButton" >Tiếp tục mua hàng</a>
 	<a href="{{  route('getDeliveryAddress') }}" value="Thanh toán" class="btn btn-default pull-right functionButton">Thanh toán</a>
 </div>
 @endif

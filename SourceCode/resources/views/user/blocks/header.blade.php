@@ -1,4 +1,5 @@
 
+<!-- .header-top -->
 <div class="header-top">
 	<div class="container">
 		<div class="row">
@@ -25,6 +26,7 @@
 			</div>
 
 			<div class="col-sm-6">
+				<!-- .account -->
 				<div class="account pull-right">
 					<ul class="nav nav-pills">
 					@if (Auth::check())
@@ -68,10 +70,11 @@
 </div>
 <!-- /.header-top -->
 
-
+<!-- .header-middle -->
 <div class="header-middle">
 	<div class="container">
 		<div class="row">
+			<!-- .logo -->
 			<div class="col-sm-4">
 						<div class="logo inner_page_log">
 							<h1><a class="navbar-brand" href="{{ URL('/') }}"><span>TTT</span> <i>Shop</i></a></h1>
@@ -82,16 +85,21 @@
 			<div class="col-sm-8 col-xs-12">
 				<div class="sub-menu shopping-cart pull-right">
 					<ul class="nav nav-pills">
-						<li><a href="{{ route('getContact') }}"><i class="fa fa-phone" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['contact']:Config::get('lang.vi')['contact'] }}</a></li>
 						<li>
-							<a href="{{ route('getWishList') }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['favorite']:Config::get('lang.vi')['favorite'] }} <span>
+							<a href="{{ route('getContact') }}"><i class="fa fa-phone" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['contact']:Config::get('lang.vi')['contact'] }}</a>
+						</li>
+						<li>
+							<a href="{{ route('getWishList') }}"><i class="fa fa-heart" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['favorite']:Config::get('lang.vi')['favorite'] }} 
+								<span>
 									@if (Auth::check())
 										(<span class='total_user_like_number'>{{ App\WishList::where(['user_id' => Auth::user()->id, 'is_liked' => 1])->count() }}</span>)
 									@endif
 								</span>
 							</a>
 						</li>
-						<li><a href="{{ route('getDeliveryAddress') }}"><i class="fa fa-money" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['checkout']:Config::get('lang.vi')['checkout'] }}</a></li>
+						<li>
+							<a href="{{ route('getDeliveryAddress') }}"><i class="fa fa-money" aria-hidden="true"></i>{{ (session('lang'))?Config::get('lang.'.session('lang'))['checkout']:Config::get('lang.vi')['checkout'] }}</a>
+						</li>
 	                    <li class="dropdown hover">
 	                    	<a href="{{ route('getCartInfo') }}" class="dropdown-toggle" id="shopping-cart"><span class="glyphicon glyphicon-shopping-cart" style="margin-right: 8px;"></span>{{ (session('lang'))?Config::get('lang.'.session('lang'))['cart']:Config::get('lang.vi')['cart'] }} (<span class='cart-count'>{{ Cart::count() }}</span>) <b class="caret"></b></a>
 	                        <ul class="dropdown-menu">

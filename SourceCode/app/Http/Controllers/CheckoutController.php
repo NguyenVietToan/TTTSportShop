@@ -96,11 +96,11 @@ class CheckoutController extends Controller
         }
 
 
-        $customer->create($customer_data);
-        $customer_id =  DB::getPdo()->lastInsertId();
+        $customer->create($customer_data);                  //tạo khách hàng bằng mảng các (key,value)
+        $customer_id =  DB::getPdo()->lastInsertId();       //id cuối chính là khách hàng mới tạo ra
         $order_data['customer_id'] = $customer_id;
-        $order->create($order_data);
-        $order_id = DB::getPdo()->lastInsertId();
+        $order->create($order_data);                        //tạo đơn hàng bằng mảng các (key,value)
+        $order_id = DB::getPdo()->lastInsertId();           //id cuối chính là đơn hàng mới tạo ra
         $product_property = new ProductProperty;
         foreach($cartItems as $item){
             $size_id = $item->options->size;
@@ -119,10 +119,10 @@ class CheckoutController extends Controller
                 $data['size_id'] = $size_id;
             }
 
-            $order_detail->create($order_detail_data);
-            $product_property->updateQty($data, $item->qty);
+            $order_detail->create($order_detail_data);          //tạo chi tiết đơn hàng bằng mảng các (key,value)
+            $product_property->updateQty($data, $item->qty);    //cập nhật lại số lượng mặt hàng
         }
         Cart::destroy(); //thanh toán xong thì xóa hết sp trong giỏ
-        return redirect()->route('getCartInfo')->with(['flash_level' => 'success', 'flash_message' => 'Cảm ơn bạn đã mua hàng của shop chúng tôi. Đơn hàng của bạn đã được gửi đi. Vui lòng kiểm tra thông tin đơn hàng để biết trạng thái đơn hàng!']);
+        return redirect()->route('getCartInfo')->with(['flash_level' => 'success', 'flash_message' => 'Cảm ơn bạn đã mua hàng của shop chúng tôi. Đơn hàng của bạn đã được gửi đi. Vui lòng kiểm tra thông tin đơn hàng để biết trạng thái đơn hàng khi đã đăng ký thành viên!']);
     }
 }

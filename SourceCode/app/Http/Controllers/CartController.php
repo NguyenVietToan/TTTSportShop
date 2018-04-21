@@ -61,7 +61,7 @@ class CartController extends Controller
     }
 
 
-    //Xóa sản phẩm khỏi giỏ
+    //Xóa sản phẩm khỏi giỏ: Cart thực hiện xóa theo dòng rowId
     public function getDeleteItem ($id) {
     	Cart::remove($id);
     	return redirect()->route('getCartInfo');

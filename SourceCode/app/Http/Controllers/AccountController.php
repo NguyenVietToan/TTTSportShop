@@ -114,24 +114,25 @@ class AccountController extends Controller
     	$user->save();
 
         //Xử lý ảnh đại diện
-        // if (!empty($request->file('avatar'))) {
-        //     $img_ext = $request->file('avatar')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
-        //     if (in_array($img_ext, Config::get('constants.image_valid_extension'))) {
-        //         $img_name = $request->file('avatar')->getClientOriginalName();
+        if (!empty($request->file('avatar'))) {
+            $img_ext = $request->file('avatar')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
+            if (in_array($img_ext, Config::get('constants.image_valid_extension'))) {
+                $img_name = $request->file('avatar')->getClientOriginalName();
 
-        //         $img_dir  = 'resources/upload/images/user/' . $user->id;
-        //         if (!file_exists($img_dir)) {
-        //             mkdir($img_dir);
-        //         }
-        //         $img = Image::make($request->file('avatar')->getRealPath());
-        //         $img->resize(100, 100)->save($img_dir . '/' .  $img_name);
-        //         $user->avatar = $img_name;
-        //         $user->save();
-        //     } else {
-        //         return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh !']);
-        //     }
-        // }
+                $img_dir  = 'resources/upload/images/user/' . $user->id;
+                if (!file_exists($img_dir)) {
+                    mkdir($img_dir);
+                }
+                $img = Image::make($request->file('avatar')->getRealPath());
+                $img->resize(100, 100)->save($img_dir . '/' .  $img_name);
+                $user->avatar = $img_name;
+                $user->save();
+            } else {
+                return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh !']);
+            }
+        }
 
+        //gửi mail kích hoạt tài khoản
         $thisUser = User::findOrFail($user->id);
         $this->sendEmail($thisUser);
 
@@ -146,7 +147,7 @@ class AccountController extends Controller
 
 
     //sau khi đăng ký thì đã lưu trong DB rồi, nhưng khi đó status = 0
-    //sau khi đến mail click hoạt thì mới cập nhật lại status = 1, khi đó thì sẽ ko còn mã verifyToken nữa (=null)
+    //sau khi đến mail kích hoạt thì mới cập nhật lại status = 1, khi đó thì sẽ ko còn mã verifyToken nữa (=null)
     public function sendEmailDone ($email, $verifyToken) {
         $user = User::where(['email' => $email, 'verifyToken' => $verifyToken])->first();
         if ($user) {
@@ -165,25 +166,25 @@ class AccountController extends Controller
     }
 
 
-    public function resetDate(){
-        $table = 'wish_lists';
-        $select = ['id'];
-        $list_records = DB::table($table)->select($select)->get();
-        $time = time();
-        $diff = 0;
-        $c_than_u = 0;
-        foreach($list_records as $record){
-            $diff = mt_rand(1, 3600) + $diff;
-            $current_created = $time + $diff;
-            $c_than_u = mt_rand(7200, 745000);
-            $current_updated = $current_created +  $c_than_u;
-            $data_update = [
-                'created_at' => Date('Y-m-d H:i:s',$current_created),
-                'updated_at' => Date('Y-m-d H:i:s',$current_updated)
-            ];
-            DB::table($table)->where('id', $record->id)->update($data_update);
-        }
-    }
+    // public function resetDate(){
+    //     $table = 'wish_lists';
+    //     $select = ['id'];
+    //     $list_records = DB::table($table)->select($select)->get();
+    //     $time = time();
+    //     $diff = 0;
+    //     $c_than_u = 0;
+    //     foreach($list_records as $record){
+    //         $diff = mt_rand(1, 3600) + $diff;
+    //         $current_created = $time + $diff;
+    //         $c_than_u = mt_rand(7200, 745000);
+    //         $current_updated = $current_created +  $c_than_u;
+    //         $data_update = [
+    //             'created_at' => Date('Y-m-d H:i:s',$current_created),
+    //             'updated_at' => Date('Y-m-d H:i:s',$current_updated)
+    //         ];
+    //         DB::table($table)->where('id', $record->id)->update($data_update);
+    //     }
+    // }
 
 }
 

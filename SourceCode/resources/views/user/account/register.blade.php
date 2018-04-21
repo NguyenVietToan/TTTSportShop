@@ -15,11 +15,8 @@ $(document).ready(function() {
 <div class="inner-header">
 	<div class="container">
 		<ul class="breadcrumb">
-    		<li>
-      			<a href="{{ route('getHome') }}">Trang chủ</a>
-      			<span class="divider"></span>
-    		</li>
-    		<li class="active">Đăng ký</li>
+    		<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
+    		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['register']:Config::get('lang.vi')['register'] }}</li>
   		</ul>
   		<!-- /.breadcrumb -->
 	</div>
@@ -34,7 +31,7 @@ $(document).ready(function() {
 			<div class="row">
 				<div class="col-xs-3 col-sm-3 col-md-3 col-lg-3"></div>
 				<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-					<h2 class="title text-center" style="margin-bottom: 35px;">Đăng ký</h2>
+					<h2 class="title text-center" style="margin-bottom: 35px;">{{ (session('lang'))?Config::get('lang.'.session('lang'))['register']:Config::get('lang.vi')['register'] }}</h2>
 
 					<div class="form-group">
                     	<label>Email <span class="asterisk">*</span></label>
