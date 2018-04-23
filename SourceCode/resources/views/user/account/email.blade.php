@@ -5,10 +5,10 @@
 	  <div class="container">
 		    <ul class="breadcrumb">
     		    <li>
-      			    <a href=""><i class="fa fa-home" aria-hidden="true"></i>  Trang chủ</a>
+      			    <a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i>  {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a>
       			    <span class="divider"></span>
     		    </li>
-    		    <li class="active">Quên mật khẩu</li>
+    		    <li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['forget_pwd']:Config::get('lang.vi')['forget_pwd'] }}</li>
   		  </ul>
   		  <!-- /.breadcrumb -->
 		    <div class="clearfix"></div>
@@ -19,7 +19,7 @@
     <div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="panel panel-success" style="margin-bottom: 60px;">
-                <div class="panel-heading">Quên mật khẩu</div>
+                <div class="panel-heading">{{ (session('lang'))?Config::get('lang.'.session('lang'))['forget_pwd']:Config::get('lang.vi')['forget_pwd'] }}</div>
                 <div class="panel-body">
                     @if (Session::has('flash_message'))
                         <div class="message alert alert-{{ Session::get('flash_level') }}">

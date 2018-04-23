@@ -11,9 +11,9 @@ include 'shipper.php';
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 //thêm, xóa cột trong bảng, xóa bảng
 Route::get('schema/drop-col', function() {

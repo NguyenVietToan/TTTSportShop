@@ -127,7 +127,7 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.mytreeview').removeClass('active');  //loại bỏ active ở cái hiện tại
-        $("#home").addClass('active');   //active sang cái mới
+        $("#home").addClass('active');   //active sang menu home
     });
 </script>
 

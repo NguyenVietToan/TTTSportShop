@@ -59,6 +59,7 @@ return [
 		'back' => 'Quay lại',
 		'products'           => 'Danh sách sản phẩm',
 		'buy'                => 'Mua ngay',
+		'forget_pwd' => 'Quên mật khẩu'
 	],
 	'en' => [
 		'login'              => 'Login',
@@ -115,5 +116,6 @@ return [
 		'back' => 'Back',
 		'products'           => 'Products',
 		'buy'                => 'Buy now',
+		'forget_pwd' => 'Forget Password'
 	]
 ];
