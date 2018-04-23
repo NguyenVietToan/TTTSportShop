@@ -18,7 +18,8 @@
 
             <div class="form-group">
                 <label>Email <span class="asterisk">*</span></label>
-                <input type="email" class="form-control" name="email" placeholder="Nhập địa chỉ email" value="{{ old('email', isset($member) ? $member->email : null) }}" />
+                <input type="email" class="form-control" name="email" placeholder="Nhập địa chỉ email" 
+                value="{{ old('email', isset($member) ? $member->email : null) }}" />
             </div>
 
             <div class="form-group">
@@ -128,7 +129,7 @@
 
             <div class="form-group">
                 <label>Số điện thoại <span class="asterisk">*</span></label>
-                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" value="{{ old('phone', isset($member) ? '0'.$member->phone : null) }}">
+                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" value="{{ old('phone', isset($member) ? $member->phone : null) }}">
             </div>
 
             <div class="form-group" align="center">

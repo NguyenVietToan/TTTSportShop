@@ -7,7 +7,7 @@ use App\Http\Controllers\Controller;
 use Session;
 use App\Member;
 use App\Order;
-use DB, Auth, Config;
+use DB, Auth, Config, Image, File;
 
 
 class ShipperController extends Controller

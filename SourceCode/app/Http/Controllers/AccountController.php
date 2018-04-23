@@ -151,7 +151,8 @@ class AccountController extends Controller
     public function sendEmailDone ($email, $verifyToken) {
         $user = User::where(['email' => $email, 'verifyToken' => $verifyToken])->first();
         if ($user) {
-            return User::where(['email' => $email, 'verifyToken' => $verifyToken])->update(['status' => '1', 'verifyToken' => null]);
+         User::where(['email' => $email, 'verifyToken' => $verifyToken])->update(['status' => '1', 'verifyToken' => null]);
+         return redirect()->route('getLogin');
         } else {
             echo 'Không tồn tại tài khoản!';
         }

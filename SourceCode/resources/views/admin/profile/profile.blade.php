@@ -55,7 +55,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="">Số điện thoại:</label>
 							<div class="col-md-8">
-								<label for="">0{{ $admin->phone }}</label>
+								<label for="">{{ $admin->phone }}</label>
 							</div>
 						</div>
 
