@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Auth\Admin;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use DB, Session, Hash, Config;
+use DB, Session, Hash, Config, Image, File;
 use App\Member;
 
 class AuthAdminController extends Controller
@@ -36,7 +36,7 @@ class AuthAdminController extends Controller
 			                           ->where('password', '=', $password)
 			                           ->first();
 		if ($members) {
-			$this->createMember($members);
+			$this->createMember($members);   		  //lưu member vào session để kiểm tra trong middleware
 			return $this->viewMember($members->level);
 		} else {
 			return redirect()->route('member.getLogin')->with(['flash_level' => 'error', 'flash_message' => 'Email hoặc mật khẩu chưa đúng!']);
@@ -60,7 +60,6 @@ class AuthAdminController extends Controller
 				'id'            => $member->id,
 				'email'         => $member->email,
 				'password'      => $member->password,
-				're_password'   => $member->re_password,
 				'name'          => $member->name,
 				'birthday'      => $member->birthday,
 				'gender'        => $member->gender,
@@ -100,7 +99,7 @@ class AuthAdminController extends Controller
 	//Cập nhật thông tin cá nhân của Admin
 	public function getEditInfo () {
 		$member       = Member::find(Session::get('member')['id']);
-		$birthday     = explode('-', $member->birthday);
+		$birthday     = explode('-', $member->birthday);	//birthday[0] là năm, birthday[1] là tháng, birthday[2] là ngày
 		$ward         = DB::table('ward')->where('wardid', '=', $member->wardid)->first();
 		$wards        = DB::table('ward')->where('districtid', '=', $ward->districtid)->get();
 		$district     = DB::table('district')->where('districtid', '=', $ward->districtid)->first();
@@ -218,8 +217,8 @@ class AuthAdminController extends Controller
         	DB::table('members')->where('id', '=', Session::get('member')['id'])
         	                    ->update(
         	                    	[
-										'password'    => $newPassword,
-										're_password' => $re_newPassword
+										'password'    => $newPassword
+										
         	                    	]
         	                    );
             return redirect()->route('admin.getProfile')->with(['flash_level' => 'success', 'flash_message' => 'Mật khẩu của bạn đã được cập nhật']);

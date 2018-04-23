@@ -54,15 +54,16 @@
     </script>
 
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
+<body class="hold-transition skin-red sidebar-mini">
     <div class="wrapper">
+        <!--.main-header-->
         <header class="main-header">
             <!-- Logo -->
             <a href="{{ url('admin/home/') }}" class="logo">
                 <!-- mini logo for sidebar mini 50x50 pixels -->
-                <span class="logo-mini"><b>TP</b>S</span>
+                <span class="logo-mini"><b>TTT Shop</b> - <i style="font-size: 13px;">Admin</i></span>
                 <!-- logo for regular state and mobile devices -->
-                <span class="logo-lg"><b>TTT</b> Shop</span>
+                <span class="logo-lg"><b>TTT Shop</b> - <i style="font-size: 13px;">Admin</i></span>
             </a>
             <!-- Header Navbar: style can be found in header.less -->
             <nav class="navbar navbar-static-top">
@@ -87,7 +88,7 @@
 
                                     <p>
                                         {{ Session::get('member')['name'] }} - Admin
-                                        <small>Từ {{ Session::get('member')['start_date'] }}</small>
+                                        <small>Từ {{Date('d/m/Y', strtotime(Session::get('member')['start_date'])) }}</small>
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
@@ -105,6 +106,7 @@
                 </div>
             </nav>
         </header>
+        <!--/.main-header-->
 
         <!-- Left side column. contains the logo and sidebar -->
         @include('admin.leftmenu')
@@ -136,7 +138,7 @@
                 </div>
             </div>
 
-            <!-- Main content -->
+        <!-- Main content -->
         @yield('content')
         <!-- /.Main content -->
         </div>
