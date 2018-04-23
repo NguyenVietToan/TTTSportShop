@@ -72,7 +72,7 @@ class CateController extends Controller
     {
         $cate = Category::find($id);
 
-        //Xóa sản phẩm tương ứng
+        //Xóa sản phẩm tương ứng với thể loại được chọn
         $product = Product::where('cate_id', '=', $id)->get();
 
         if (isset($product)) {
@@ -173,7 +173,7 @@ class CateController extends Controller
             }
             return redirect()->route('admin.cate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Xóa thể loại thành công !']);
         } else {
-            return redirect()->route('admin.cate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
+            return redirect()->route('admin.cate.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
         }
     }
 

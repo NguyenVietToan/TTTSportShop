@@ -35,6 +35,9 @@
                         <td>{{ $item->description }}</td>
                         <td>
                             {{ stranslateTime(\Carbon\Carbon::createFromTimestamp(strtotime($item->created_at))->diffForHumans()) }}
+
+                            <!-- createFromTimestamp là hàm tính lượng thời gian hiện tại so với thời gian được truyền vào,
+                                 diffForHumans là hàm thêm hậu tố before/ago hoặc from now/after -->
                         </td>
                         <td>
                             {{ stranslateTime(\Carbon\Carbon::createFromTimestamp(strtotime($item->updated_at))->diffForHumans()) }}
@@ -46,7 +49,7 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-default delete">Xóa</button>
+        <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
 
         <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $cates])</div>
     </form>
@@ -59,10 +62,10 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.mytreeview').removeClass('active');  //loại bỏ active ở cái hiện tại
-        $("#product").addClass('active');
-        $("#listcate").addClass('active');   //active sang cái mới
+        $("#product").addClass('active');       //active sang menu product
+        $("#listcate").addClass('active');   //active sang sub menu category
         var check = false;
-        $('#check').click(function(){
+        $('#check').click(function(){   //set check all
             if(check == false){
                 check = true;
                 $(".check_class").prop("checked",true);

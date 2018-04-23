@@ -91,7 +91,7 @@ function changeTitle($str, $strSymbol = '-', $case = MB_CASE_LOWER) {
 //------------------------------------------------------------------------------------------------------
 
 
-// hàm chuyển đổi thời gian sang tiếng việt
+// hàm chuyển đổi thời gian sang tiếng việt (dùng trong admin)
 function stranslateTime($str){
 	if(empty($str)){
 		return;
