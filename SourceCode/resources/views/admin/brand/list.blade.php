@@ -50,7 +50,7 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-default delete">Xóa</button>
+        <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
 
         <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $brands])</div>
     </form>
@@ -63,8 +63,8 @@
 <script type="text/javascript">
     $(document).ready(function(){
         $('.mytreeview').removeClass('active');  //loại bỏ active ở cái hiện tại
-        $("#product").addClass('active');
-        $("#listbrand").addClass('active');   //active sang cái mới
+        $("#product").addClass('active');       // active sang menu product
+        $("#listbrand").addClass('active');   //active sang submenu thương hiệu
         var check = false;
         $('#check').click(function(){
             if(check == false){
