@@ -50,7 +50,7 @@
             <br>
             <div class="form-group">
                 <label>Số điện thoại <span class="asterisk">*</label>
-                <input type="text" class="form-control" name="phone" value="{{ '0'.$supplier->phone }}" />
+                <input type="text" class="form-control" name="phone" value="{{ $supplier->phone }}" />
             </div>
             <div class="form-group">
                 <label>Email <span class="asterisk">*</label>

@@ -37,7 +37,7 @@
                         <td>{{ $stt++ }}</td>
                         <td>{{ $item->name }}</td>
                         <td>{{ $item->full_address }}</td>
-                        <td>0{{ $item->phone }}</td>
+                        <td>{{ $item->phone }}</td>
                         <td>{{ $item->email }}</td>
                         <td>
                             {{ stranslateTime(\Carbon\Carbon::createFromTimestamp(strtotime($item->created_at))->diffForHumans()) }}
@@ -52,7 +52,7 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-default delete">Xóa</button>
+        <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
 
         <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $suppliers])</div>
     </form>
