@@ -121,7 +121,7 @@ class NewsCateController extends Controller
             }
             return redirect()->route('admin.newscate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Xóa loại tin thành công !']);
         } else {
-        	return redirect()->route('admin.newscate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
+        	return redirect()->route('admin.newscate.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
         }
     }
 }
