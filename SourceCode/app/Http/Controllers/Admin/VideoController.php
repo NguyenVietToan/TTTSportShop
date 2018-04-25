@@ -79,11 +79,11 @@ class VideoController extends Controller
         );
 
 		$video = Video::find($id);
-        $check = DB::table('videos')->where('title', '=', $request->title)->count();
-        if ( ($request->title == $video->title) || (($request->title != $video->title) && ($check < 1)) ) {
+        $check = DB::table('videos')->where('link', '=', $request->link)->count();
+        if ( ($request->link == $video->link) || (($request->link != $video->link) && ($check < 1)) ) {
             $video->title = $request->title;
             $video->alias = changeTitle($request->title);
-
+            $video->link = $request->link;
             //để cập nhật ảnh logo mới thì cần phải: tải ảnh mới lên (lưu theo tên ảnh) -> di chuyển nó vào thư mục chứa -> xóa ảnh cũ đi
             $img_dir = 'resources/upload/images/video/' . $id;
             if (!file_exists($img_dir)) {
@@ -108,7 +108,7 @@ class VideoController extends Controller
             $video->save();
             return redirect()->route('admin.video.getList')->with(['flash_level' => 'success', 'flash_message' => 'Sửa video thành công !']);
         } else {
-            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Tiêu đề video này đã tồn tại !']);
+            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Video này đã tồn tại !']);
         }
     }
 
@@ -146,7 +146,7 @@ class VideoController extends Controller
             }
             return redirect()->route('admin.video.getList')->with(['flash_level' => 'success', 'flash_message' => 'Xóa video thành công']);
         } else {
-            return redirect()->route('admin.video.getList')->with(['flash_level' => 'success', 'flash_message' => 'Không có mục nào được chọn để xóa']);
+            return redirect()->route('admin.video.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa']);
         }
     }
 }
