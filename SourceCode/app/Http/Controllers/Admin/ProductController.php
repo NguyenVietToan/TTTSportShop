@@ -374,7 +374,7 @@ class ProductController extends Controller
     }
 
 
-    //Thêm giá giảm cho sp
+    //Thêm giảm giá cho sp
     public function addSale (Request $request) {
 		$pro_id     = $request->pro_id;
 		$sale_price = $request->sale_price;

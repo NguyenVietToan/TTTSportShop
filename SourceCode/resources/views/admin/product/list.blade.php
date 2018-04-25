@@ -6,9 +6,11 @@
 
 <section class="content">
     <div class="col-xs-2 col-sm-3 col-md-4"></div>
+    <!-- search product name  -->
     <div class="col-xs-8 col-sm-6 col-md-4">
         <input class="form-control" type="text" id="search" name="search" value="{{ isset($keyword) ? $keyword : null }}" placeholder="Nhập nội dung tìm kiếm ở đây...">
     </div>
+    <!-- /search product name  -->
 
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="col-xs-8 col-sm-6 col-md-4 col-xs-push-2 col-sm-push-3 col-md-push-4">
@@ -26,15 +28,16 @@
     </div>
     <!-- /.row -->
 
+    <!-- filter search -->
     <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
         <div class="row">
             <form action="{{ route('admin.product.getList') }}" method="GET" role="form">
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 selectCate" style="padding-left: 0;">
                     <div class="form-group">
                         <select class="form-control" name="cateId">
-                            <option value="0">Chọn thể loại</option>
+                            <option value="">Chọn thể loại</option>
                             @foreach ($cate as $c_item)
-                                <option value="{{ $c_item['id'] }}" @if(!empty($cate_id) && ($c_item['id'] == $cate_id)) selected @endif>{{ $c_item['name'] }}</option>
+                                <option value="{{ $c_item['id'] }}" @if(!empty($cate_id) && ($c_item['id'] == $cate_id)) selected @endif>{{ $c_item->name }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -42,9 +45,9 @@
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 selectSport" style="padding-left: 0;">
                     <div class="form-group">
                         <select class="form-control" name="sportId">
-                            <option value="0">Chọn bộ môn</option>
+                            <option value="">Chọn bộ môn</option>
                             @foreach ($sport as $s_item)
-                                <option value="{{ $s_item['id'] }}" @if(!empty($sport_id) && ($s_item['id'] == $sport_id)) selected @endif>{{ $s_item['name'] }}</option>
+                                <option value="{{ $s_item->id }}" @if(!empty($sport_id) && ($s_item->id == $sport_id)) selected @endif>{{ $s_item['name'] }}</option>
                             @endforeach
                         </select>
                     </div>
@@ -52,7 +55,7 @@
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 selectBrand" style="padding-left: 0;">
                     <div class="form-group">
                         <select class="form-control" name="brandId">
-                            <option value="0">Chọn thương hiệu</option>
+                            <option value="">Chọn thương hiệu</option>
                             @foreach ($brand as $b_item)
                                 <option value="{{ $b_item['id'] }}" @if(!empty($brand_id) && ($b_item['id'] == $brand_id)) selected @endif>{{ $b_item['name'] }}</option>
                             @endforeach
@@ -62,7 +65,7 @@
                 <div class="col-xs-6 col-sm-6 col-md-3 col-lg-2 selectGender" style="padding-left: 0;">
                     <div class="form-group">
                         <select class="form-control" name="gender">
-                            <option value="0">Chọn giới tính</option>
+                            <option value="">Chọn giới tính</option>
                             <option value="1" @if(!empty($gender) && ($gender == "1")) selected @endif>nam</option>
                             <option value="2" @if(!empty($gender) && ($gender == "2")) selected @endif>nữ</option>
                             <option value="3" @if(!empty($gender) && ($gender == "3")) selected @endif>nam+nữ</option>
@@ -77,7 +80,9 @@
             </form>
         </div>
     </div>
+    <!-- /filter search -->
 
+    <!-- product table -->
     <form action="{{ route('admin.product.postDelete') }}" method="POST" role="form" class="list-pro-data">
         <input type="hidden" name="_token" value="{{ csrf_token() }}">
 
@@ -155,7 +160,7 @@
                 </tbody>
             </table>
 
-            <button type="submit" class="btn btn-default delete" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
+            <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
 
             @if (isset($cate_id) || isset($sport_id) || isset($brand_id) || isset($gender))
                 <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $products->appends(Request::capture()->except('page'))])</div>
@@ -164,6 +169,7 @@
             @endif
         </div>
     </form>
+    <!-- product table -->
 
 <script>
     URL_SEARCH_PRODUCT_AJAX = {!! json_encode(['url' => route('admin.product.getSearchProduct'), 'paginate_url' => $paginateUrl]) !!}   //  hàm json_encode($array) sẽ chuyển mảng $array thành 1 chuỗi json

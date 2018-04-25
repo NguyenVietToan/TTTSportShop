@@ -90,7 +90,8 @@
                 <input type="file" name="fProductDetailImage[]" class="img-detail">  {{-- ở đây phải có [] vì là 1 mảng --}}
             </div>
             <div id="insert"></div>
-            <button type="button" class="btn btn-primary" id="addImages"><i class="fa fa-plus" aria-hidden="true"></i></button>
+            {{-- thêm ảnh chi tiết trong public/admin/js/myscript.js --}}
+            <button type="button" class="btn btn-primary" id="addImages"><i class="fa fa-plus" aria-hidden="true"></i></button>             
         </div>
 
     <form>
