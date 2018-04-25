@@ -119,7 +119,7 @@ class VideoCateController extends Controller
             }
             return redirect()->route('admin.videocate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Xóa thể loại video thành công !']);
         } else {
-        	return redirect()->route('admin.videocate.getList')->with(['flash_level' => 'success', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
+        	return redirect()->route('admin.videocate.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
         }
     }
 }
