@@ -32,13 +32,17 @@ class SizeController extends Controller
 	public function postEdit (Request $request) {
         $id   = $request->id;
         $size = Size::findOrFail($id);
+        $this->validate($request,
+                ['value' => 'required'],
+                ['value.required'  => 'Vui lòng nhập kích thước']
+            );
 
         $check = DB::table('sizes')
 		        ->where('cate_id', '=', $size->cate_id)
 		        ->where('value', '=', $request->value)
 		        ->count();
         if ($check >= 1) {
-            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Bộ thuộc tính này đã tồn tại']);
+            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Size của thể loại này này đã tồn tại']);
         }
 
         $input = $request->except(['_token']);
@@ -56,6 +60,13 @@ class SizeController extends Controller
 
     public function postAdd (Request $request)
     {
+        $this->validate($request,
+                ['value' => 'required'],
+                ['value.required'  => 'Vui lòng nhập kích thước']
+            );
+        if (empty($request->cate_id)){
+            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Vui lòng chọn thể loại']);
+        }
         if ($request->exists('value')) {
             foreach ($request->value as $val) {
                 if (isset($val)) {
@@ -73,8 +84,11 @@ class SizeController extends Controller
                     }
                 }
             }
+            return redirect()->route('admin.size.getList')->with(['flash_level' => 'success', 'flash_message' => 'Thêm size thành công !']);
+        } else{
+            return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'Vui lòng nhập size']);
         }
-        return redirect()->route('admin.size.getList')->with(['flash_level' => 'success', 'flash_message' => 'Thêm size thành công !']);
+        
     }
 
 
@@ -98,7 +112,7 @@ class SizeController extends Controller
             }
             return redirect()->route('admin.size.getList')->with(['flash_level' => 'success', 'flash_message' => 'Xóa size thành công !']);
         } else {
-            return redirect()->route('admin.size.getList')->with(['flash_level' => 'success', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
+            return redirect()->route('admin.size.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa !']);
         }
     }
 

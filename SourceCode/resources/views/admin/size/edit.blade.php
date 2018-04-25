@@ -12,7 +12,7 @@
             <input type="hidden" name="id" value="{{ $size->id }}">
         	<div class="form-group">
                 <label>Thể loại <span class="asterisk">*</span></label>
-                <select class="form-control" name="cate_id" disabled="disabled" >
+                <select class="form-control" name="cate_id" disabled >
                 	<option value="">Chọn thể loại</option>
 	                @foreach ($cates as $item)
 	                	<option value="{{ $item->id }}"
