@@ -30,7 +30,7 @@
                 </tr>
             </thead>
             <tbody>
-                <?php $stt = !empty($_GET['page']) ? ($_GET['page']-1)*3+1 : 1 ?>
+                <?php $stt = !empty($_GET['page']) ? ($_GET['page']-1)*7+1 : 1 ?>
                 @foreach ($news as $item)
                     <tr class="odd gradeX" align="center">
                         <td><input type="checkbox" class="check_class" name="checks[]" value="{{ $item->id }}"></td>
@@ -56,7 +56,7 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-default delete">Xóa</button>
+        <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn có chắc là muốn xóa các tin tức đã chọn không?')">Xóa</button>
 
         <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $news])</div>
     </form>
