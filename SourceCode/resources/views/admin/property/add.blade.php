@@ -19,12 +19,15 @@
                     @endforeach
                 </select>
             </div>
+
+            <!-- dùng script URL_GET_SIZE_BY_CATEID trong file admin/myscript.js để hiện size tương ứng với thể loại sản phẩm -->
             <div class="form-group" id="size-group">
                 <label>Size</label>
                 <select class="form-control" name="size_id" id="size">
                 </select>
 
             </div>
+
             <div class="form-group">
                 <label>Số lượng</label>
                 <input type="number" min="0" step="1" class="form-control" name="qty" value="old('qty')">

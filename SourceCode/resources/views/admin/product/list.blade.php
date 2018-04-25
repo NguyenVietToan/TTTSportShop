@@ -160,7 +160,7 @@
                 </tbody>
             </table>
 
-            <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn Có Chắc Là Muốn Xóa Không?')">Xóa</button>
+            <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn có chắc là muốn xóa các sản phẩm đã chọn không?')">Xóa</button>
 
             @if (isset($cate_id) || isset($sport_id) || isset($brand_id) || isset($gender))
                 <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $products->appends(Request::capture()->except('page'))])</div>

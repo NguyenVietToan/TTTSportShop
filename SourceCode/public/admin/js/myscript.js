@@ -61,7 +61,7 @@ $(document).ready(function() {
                 pro_id: pro_id
             },
             success: function(response) {
-                if (response == '') {
+                if (response == '') {        //nếu là loại sản phẩm không có size
                     $('#size').prop('disabled', true); //disabled thẻ input trong jquery
                 } else {
                     $('#size').prop('disabled', false);
