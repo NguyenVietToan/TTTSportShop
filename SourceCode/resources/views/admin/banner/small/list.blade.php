@@ -52,7 +52,7 @@
             </tbody>
         </table>
 
-        <button type="submit" class="btn btn-default delete">Xóa</button>
+        <button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn có chắc là muốn xóa các banner đã chọn không?')">Xóa</button>
 
         <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $small_banners])</div>
     </form>
