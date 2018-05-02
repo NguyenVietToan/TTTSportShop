@@ -82,14 +82,17 @@ class SportController extends Controller
             if ( ! empty($request->file('fImages')) ) { //nếu tồn tại file ảnh mới
                 $img_ext = $request->file('fImages')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
                 if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
-                    $file_name    = $request->file('fImages')->getClientOriginalName();
-                    $sport->image = $file_name;
-                    $img = Image::make($request->file('fImages')->getRealPath());
-                    $img->resize(150, 100)->save($img_dir . '/' .  $file_name);
+
                     //Xóa ảnh cũ
                     if ( File::exists($img_current) ) {
                         File::delete($img_current);
                     }
+                    
+                    $file_name    = $request->file('fImages')->getClientOriginalName();
+                    $sport->image = $file_name;
+                    $img = Image::make($request->file('fImages')->getRealPath());
+                    $img->resize(150, 100)->save($img_dir . '/' .  $file_name);
+                    
                 } else {
                     return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh']);
                 }

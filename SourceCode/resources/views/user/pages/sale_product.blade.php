@@ -3,14 +3,15 @@
 
 <div class="container">
 	<ul class="breadcrumb">
-		<li><a href="">{{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a><span class="divider"></span></li>
-		<li class="active">Khuyến mãi</li>
+		<li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a>
+      			<span class="divider"></span></li>
+		<li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['promotion']:Config::get('lang.vi')['promotion'] }}</li>
 	</ul>
 	<!-- /.breadcrumb -->
 
 	<div class="row">
 		<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
-			<h2 class="title text-center">Sản phẩm khuyến mãi</h2>
+			<h2 class="title text-center">{{ (session('lang'))?Config::get('lang.'.session('lang'))['sale_product']:Config::get('lang.vi')['sale_product'] }}</h2>
 
 			@if (count($sale_products) == 0)
 				<div class="row">

@@ -114,18 +114,21 @@ class NewsController extends Controller
 				//thêm ảnh mới (resize)
 				$img_ext = $request->file('fImages')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
 	            if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
-					$file_name   = $request->file('fImages')->getClientOriginalName();
-					$news->image = $file_name;
-					$img = Image::make($request->file('fImages')->getRealPath());
-					$img->resize(500, 500)->save($lg_dir . '/' .  $file_name);
-					$img->resize(100, 100)->save($thn_dir . '/' .  $file_name);
-						//xóa ảnh cũ
+
+	            		//xóa ảnh cũ
 					if (File::exists($lg_cur_dir)) {
 						File::delete($lg_cur_dir);
 					}
 					if (File::exists($thn_cur_dir)) {
 						File::delete($thn_cur_dir);
 					}
+					
+					$file_name   = $request->file('fImages')->getClientOriginalName();
+					$news->image = $file_name;
+					$img = Image::make($request->file('fImages')->getRealPath());
+					$img->resize(500, 500)->save($lg_dir . '/' .  $file_name);
+					$img->resize(100, 100)->save($thn_dir . '/' .  $file_name);
+					
 	         	} else {
 	         		return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh']);
 	         	}

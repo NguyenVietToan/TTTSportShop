@@ -95,18 +95,21 @@ class SmallBannerController extends Controller
 		if (!empty($request->file('fImages'))) {
 			$img_ext = $request->file('fImages')->getClientOriginalExtension();
             if (in_array($img_ext, Config::get('constants.image_valid_extension'))) {
-				$file_name   = $request->file('fImages')->getClientOriginalName();
-				$small_banner->image = $file_name;
-				$img = Image::make($request->file('fImages')->getRealPath());
-				$img->resize(250, 400)->save($lg_dir . '/' .  $file_name);
-				$img->resize(50, 100)->save($thn_dir . '/' .  $file_name);
-					//xóa ảnh cũ
-				if (File::exists($lg_cur_dir)) {
+
+            	//xóa ảnh cũ
+            	if (File::exists($lg_cur_dir)) {
 					File::delete($lg_cur_dir);
 				}
 				if (File::exists($thn_cur_dir)) {
 					File::delete($thn_cur_dir);
 				}
+
+				$file_name   = $request->file('fImages')->getClientOriginalName();
+				$small_banner->image = $file_name;
+				$img = Image::make($request->file('fImages')->getRealPath());
+				$img->resize(250, 400)->save($lg_dir . '/' .  $file_name);
+				$img->resize(50, 100)->save($thn_dir . '/' .  $file_name);
+				
          	} else {
          		return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh !']);
          	}

@@ -93,14 +93,17 @@ class VideoController extends Controller
             if ( ! empty($request->file('image')) ) { //nếu tồn tại file ảnh mới
                 $img_ext = $request->file('image')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
                 if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
-                    $file_name    = $request->file('image')->getClientOriginalName();
-                    $video->image = $file_name;
-                    $img = Image::make($request->file('image')->getRealPath());
-                    $img->resize(160, 160)->save($img_dir . '/' .  $file_name);
+
                         //xóa ảnh cũ
                     if ( File::exists($img_current) ) {
                         File::delete($img_current);
                     }
+                    
+                    $file_name    = $request->file('image')->getClientOriginalName();
+                    $video->image = $file_name;
+                    $img = Image::make($request->file('image')->getRealPath());
+                    $img->resize(160, 160)->save($img_dir . '/' .  $file_name);
+                    
                 } else {
                     return redirect()->back()->with(['flash_level' => 'danger', 'flash_message' => 'File bạn chọn không phải là một hình ảnh !']);
                 }

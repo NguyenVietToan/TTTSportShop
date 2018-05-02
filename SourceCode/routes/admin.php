@@ -94,7 +94,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
         //xóa sản phẩm theo checkbox
         Route::post('delete', ['as' => 'admin.product.postDelete', 'uses' => 'Admin\ProductController@postDelete']);
 
-        //xóa hình ảnh chi tiết
+        //xóa hình ảnh chi tiết trong edit product
         Route::get('delimg/{id}', ['as' => 'admin.product.getDelImg', 'uses' => 'Admin\DeleteImageProController@getDelImg']);
 
         //tìm kiếm
