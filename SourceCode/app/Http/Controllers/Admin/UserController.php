@@ -185,14 +185,17 @@ class UserController extends Controller
         if (!empty($request->file('avatar'))) { //nếu tồn tại file ảnh mới
             $img_ext = $request->file('avatar')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
             if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
-                $file_name    = $request->file('avatar')->getClientOriginalName();
-                $user->avatar = $file_name;
-                $img = Image::make($request->file('avatar')->getRealPath());
-                $img->resize(100, 100)->save($img_dir . '/' .  $file_name);
+
                 //xóa ảnh cũ
                 if (File::exists($img_current)) {
                     File::delete($img_current);
                 }
+                
+                $file_name    = $request->file('avatar')->getClientOriginalName();
+                $user->avatar = $file_name;
+                $img = Image::make($request->file('avatar')->getRealPath());
+                $img->resize(100, 100)->save($img_dir . '/' .  $file_name);
+                
             }
         }
         $check = DB::table('users')->where('email', '=', $request->email)->count();

@@ -264,7 +264,7 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
         Route::post('edit', ['as' => 'admin.member.postEdit', 'uses' => 'Admin\MemberController@postEdit']);
 
         Route::get('delete/{id}', ['as' => 'admin.member.getDelete', 'uses' => 'Admin\MemberController@getDelete']);
-        Route::post('delete', ['as' => 'admin.member.postDelete', 'uses' => 'Admin\MemberController@postDelete']);
+        // Route::post('delete', ['as' => 'admin.member.postDelete', 'uses' => 'Admin\MemberController@postDelete']);
     });
 
 
