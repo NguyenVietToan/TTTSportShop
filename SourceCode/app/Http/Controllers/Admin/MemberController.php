@@ -79,6 +79,8 @@ class MemberController extends Controller
 	public function getEdit ($id) {
 		$member       = Member::find($id);
 		$birthday     = explode('-', $member->birthday);
+		$start_date	  = explode('-', $member->start_date);
+		$str		  = $start_date[2].'/'.$start_date[1].'/'.$start_date[0];
 		$ward         = DB::table('ward')->where('wardid', '=', $member->wardid)->first();
 		$wards        = DB::table('ward')->where('districtid', '=', $ward->districtid)->get();
 		$district     = DB::table('district')->where('districtid', '=', $ward->districtid)->first();
@@ -93,7 +95,8 @@ class MemberController extends Controller
 
 		$data['member']       = $member;
 		$data['birthday']     = $birthday;
-        $data['year_arr']     = Config::get('consLogintants.years');
+		$data['start_date']     = $str;
+        $data['year_arr']     = Config::get('constants.years');
         $data['month_arr']    = Config::get('constants.months');
         $data['day_arr']      = Config::get('constants.days');
 		$data['provinces']    = $provinces;
@@ -154,14 +157,17 @@ class MemberController extends Controller
         if (!empty($request->file('image'))) { //nếu tồn tại file ảnh mới
             $img_ext = $request->file('image')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
             if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
+
+            	//xóa ảnh cũ
+                if (File::exists($img_current)) {
+                    File::delete($img_current);
+                }
+            	
                 $file_name    = $request->file('image')->getClientOriginalName();
                 $member->image = $file_name;
                 $img = Image::make($request->file('image')->getRealPath());
                 $img->resize(100, 100)->save($img_dir . '/' .  $file_name);
-                //xóa ảnh cũ
-                if (File::exists($img_current)) {
-                    File::delete($img_current);
-                }
+                
             }
         }
 

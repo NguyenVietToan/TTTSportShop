@@ -14,7 +14,7 @@
     <table class="table table-striped table-bordered table-hover">
         <thead>
             <tr align="center">
-                <th><input type="checkbox" id="check" /></th>
+                <!-- <th><input type="checkbox" id="check" /></th> -->
                 <th>Số thứ tự</th>
                 <th>Tên nhân viên</th>
                 <th>Hình ảnh</th>
@@ -32,12 +32,12 @@
             <?php $stt = !empty($_GET['page']) ? ($_GET['page']-1)*7+1 : 1 ?>
             @foreach ($members as $item)
                 <tr class="odd gradeX" align="center">
-                    <td>
+                    <!-- <td>
                         <input type="checkbox" class="check_class" name="checks[]" value="{{ $item->id }}"
                             @if ($item->level == 0)
                                 disabled
                             @endif
-                        >
+                        > -->
                     </td>
                     <td>{{ $stt++ }}</td>
                     <td>{{ $item->name }}</td>

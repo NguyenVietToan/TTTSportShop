@@ -13,7 +13,7 @@
 
             <div class="form-group">
                 <label>Ngày bắt đầu <span class="asterisk">*</span></label>
-                <input type="text" id="date-option" class="form-control col-md-8" name="start_date" placeholder="Nhập ngày bắt đầu" value="{{ old('start_date')==null ? Date('d/m/20y') : old('start_date') }}">
+                <input type="text" id="date-option" class="form-control col-md-8" name="start_date" placeholder="Nhập ngày bắt đầu" value="{{ old('start_date', isset($member) ? $start_date : Date('d/m/20y')) }}">
             </div>
 
             <div class="form-group">
