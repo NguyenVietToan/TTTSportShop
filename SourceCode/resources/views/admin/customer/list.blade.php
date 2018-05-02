@@ -53,7 +53,7 @@
         </tbody>
     </table>
 
-    <button type="submit" class="btn btn-default delete">Xóa</button>
+    <!-- <button type="submit" class="btn btn-default delete">Xóa</button> -->
 
     <div class="paginate pull-right">@include('pagination.paging', ['paginator' => $customers])</div>
 </section>
