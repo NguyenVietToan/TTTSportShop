@@ -62,7 +62,7 @@
 			</tbody>
 		</table>
 
-		<button type="submit" class="btn btn-default delete" style="margin-right: 10px" onclick="return confirm('Bạn chắc chắn muốn xóa những đơn hàng này không?')">Xóa</button>
+		<button type="submit" class="btn btn-default" style="background: #337ab7; border-color: #337ab7; color:#fff;" onclick="return confirm('Bạn chắc chắn muốn xóa những đơn hàng này không?')">Xóa</button>
 
 		<div class="paginate pull-right">@include('pagination.paging', ['paginator' => $orders])</div>
 	</form>

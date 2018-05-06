@@ -67,7 +67,7 @@
 											<th>Kích thước</th>
 											<th>Giá</th>
 											@if($order->status_order == 3)
-												<th>Trạng thái giao hàng</th>
+												<th>Trạng thái giao hàng</th>   <!-- nếu trạng thái đơn hàng đã thành công thì hiển thị thêm trạng thái chuyển hàng chi tiết của từng mặt hàng chi tiết  -->
 											@endif
 										</tr>
 									</thead>
@@ -89,7 +89,8 @@
 										@else
 											@foreach($order->data as $p_item)
 												<tr>
-													<td>{{ $i++ }}</td><td>{{ $p_item->name }}</td>
+													<td>{{ $i++ }}</td>
+													<td>{{ $p_item->name }}</td>
 													<td>{{ $p_item->qty }}</td>
 													<td>{{ $p_item->size }}</td>
 													<td>{!!number_format($p_item->price,0,',','.')!!} VNĐ</td>

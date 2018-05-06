@@ -205,7 +205,7 @@
 								<ul class="dropdown-menu mega-menu">
 									<div class="row">
 										<?php
-											$brands = DB::table('brands')->whereBetween('id', [1,4])->get();
+											$brands = DB::table('brands')->whereBetween('id', [1,11])->get();
 										?>
 										@foreach ($brands as $brand)
 										<div class="col-sm-6 col-md-2">
@@ -228,7 +228,7 @@
 											<li class="mega-menu-column">
 											    <ul>
 											    	<li class="dropdown-header other">{{ (session('lang'))?Config::get('lang.'.session('lang'))['other_brand']:Config::get('lang.vi')['other_brand'] }}</li>
-													<?php $other_brand = DB::table('brands')->where('id', '>', '4')->get(); ?>
+													<?php $other_brand = DB::table('brands')->where('id', '>', '11')->get(); ?>
 											    	@foreach ($other_brand as $obrand)
 											    		<li><a class="font13" href="{{ URL('thuong-hieu/'.$obrand->alias) }}">{{ $obrand->name }}</a></li>
 											    	@endforeach

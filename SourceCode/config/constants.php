@@ -40,6 +40,7 @@
         ]
         ,
 
+        //trong bảng orders
         'status_orders' => [
             0 => 'Chờ xử lý',
             1 => 'Đang xử lý',
@@ -48,6 +49,7 @@
             4 => 'Đã hủy'
         ],
 
+        //trong bảng exports
         'status_shipping' => [
             0 => 'Đang chuyển hàng',
             1 => 'Đã chuyển',
@@ -58,6 +60,7 @@
             2   => 'Admin'
         ],
 
+        //trong bảng detail_orders
         'detail_status_shipping' => [
             0   => 'Đã hủy',
             1   => 'Thành công'

@@ -57,7 +57,7 @@
 		        					<input type="radio" name="status_order" value="1" checked> Đang xử lý
 		        				</div>
 		        				<div class="col-md-4">
-		        					<input type="radio" name="status_order" value="2" checked> Đang chuyển hàng
+		        					<input type="radio" name="status_order" value="2" > Đang chuyển hàng
 		        				</div>
 		        				<div class="col-md-4">
 		        					<input type="radio" name="status_order" value="4"> Hủy đơn hàng

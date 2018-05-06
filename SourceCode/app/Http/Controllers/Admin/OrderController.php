@@ -116,7 +116,7 @@ class OrderController extends Controller
         foreach ($order->data as $order_detail) {
             $product            = Product::find($order_detail->pro_id);
             $product_properties = ProductProperty::where('pro_id', '=', $order_detail->pro_id)->where('qty', '>', 0)->get();
-            $size_have_qtys = array();  //Mảng dùng để những size còn hàng
+            $size_have_qtys = array();  //Mảng dùng để lưu những size còn hàng của sản phẩm
             foreach ($product_properties as $product_property) {
                 $size_have_qtys[] = $product_property->size_id;
             }
@@ -340,8 +340,11 @@ class OrderController extends Controller
             foreach ($request->get("checks") as $item) {
                 $this->delete($item);
             }
+        return redirect(route('admin.order.getList'))->with(['flash_level' => 'success', 'flash_message' => 'Xóa đơn hàng thành công']);
+        
+        } else {
+            return redirect()->route('admin.order.getList')->with(['flash_level' => 'warning', 'flash_message' => 'Không có mục nào được chọn để xóa']);
         }
-        return redirect(route('admin.order.getList'));
     }
 
     //Sử dụng cho việc xem chi tiết đơn hàng

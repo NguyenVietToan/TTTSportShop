@@ -71,7 +71,7 @@ class Order extends Model
             }
             $item->price = $price;
 
-            if ($item->status == 1) {  //sp được giao thành công
+            if ($item->status == 1) {  //sp được giao thành công (detail_status_shipping)
                 $sum_price  += $item->price * $item->qty;
             }
 
@@ -149,7 +149,7 @@ class Order extends Model
     }
 
 
-    //Lấy danh sách tất cả các đơn hàng cần giao
+    //Lấy danh sách tất cả các đơn hàng cần giao đã được phân công
     public function getAllShippingOrder ()
     {
         $shippers    = Member::where('level', '=', 1)->get();
@@ -159,15 +159,15 @@ class Order extends Model
             $id_customer = $item->id;
             //Lấy ra danh sách tất cả các đơn hàng (trạng thái đang chuyển hàng) được phân công tương ứng với shipper
             $orders = $this->join('exports', 'exports.order_id', '=', 'orders.id')
-                           ->select('orders.id', 'orders.customer_id', 'orders.delivery_address', 'exports.status', 'orders.date_order', 'exports.order_id')
+                           ->select('orders.id', 'orders.customer_id', 'orders.delivery_address', 'exports.status', 'orders.date_order', 'exports.order_id','orders.wardid')
                            ->where('exports.shipper_id', '=', $item->id)
                            ->where('orders.status_order', '=', 2)
                            ->get();
             foreach ($orders as $sub_item) {
-                $customer           = $this->getCustomer($sub_item->customer_id);
+                $customer           = $this->getCustomer($sub_item->customer_id);   //Lấy thông tin khách hàng theo id
                 $sub_item->customer = $customer->name;
 
-                $str_locate         = $item->address . ' - ' . $this->getDeliveryAddress($item->wardid);
+                $str_locate         = $sub_item->delivery_address . ' - ' . $this->getDeliveryAddress($sub_item->wardid);
                 $sub_item->location = $str_locate;
             }
             $item->order = $orders;

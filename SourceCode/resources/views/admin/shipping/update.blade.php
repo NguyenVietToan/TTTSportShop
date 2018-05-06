@@ -32,7 +32,7 @@
 						<div class="form-group">
 							<label class="col-md-2 control-label" style="padding: 0">Số điện thoại:</label>
 							<div class="col-md-4">
-								{{ '0'.$member->phone}}
+								{{ $member->phone}}
 							</div>
 						</div>
 					</th>
@@ -149,7 +149,7 @@
 				},
 				success: function(data){
 					if (data == "Ok") {
-						location.reload();  //ajax gọi đến hàm xóa, xóa xong thì DB cập nhật lại, khi đó reload lại trang này thì nó
+						location.reload();  //ajax gọi đến hàm xóa, xóa xong thì DB cập nhật lại, khi đó reload lại trang này
 					}else{
 						alert("Lỗi! Vui lòng liên hệ với admin.");
 					}
