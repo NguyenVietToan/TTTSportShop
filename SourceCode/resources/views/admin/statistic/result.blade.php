@@ -15,6 +15,7 @@
 		</div>
 	</div>
 
+
 	<div class="col-md-12" style="margin-bottom: 30px">
 		<form class="form-horizontal" action="{{ route('admin.statistic.getFilter') }}" name="filter" method="GET" role="form">
 			<input type="hidden" name="_token" value="{{ csrf_token() }}">

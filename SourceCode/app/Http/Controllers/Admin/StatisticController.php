@@ -35,7 +35,7 @@ class StatisticController extends Controller
                         ->where('od.status', '=', 1)  //các sp được giao thành công
                         ->whereDate('o.date_order', '>=', $startDate)
                         ->whereDate('o.date_order', '<=', $endDate)
-                        ->where('o.status_order', '=', '3');
+                        ->where('o.status_order', '=', '3');    //các đơn hàng đã thành công 
         if (!empty($data['cate_id'])) {
             $productSales = $productSales->where('p.cate_id', '=', $data['cate_id']);
         }
@@ -46,7 +46,7 @@ class StatisticController extends Controller
             $productSales = $productSales->where('p.brand_id', '=', $data['brand_id']);
         }
         $productSales = $productSales->groupBy(['p.id', 'p.name', 'p.price', 'p.sale_price', 'p.import_price'])
-            ->get();
+            ->get();    
 
         $profit  = 0; //tổng lợi nhuận
         $revenue = 0; //tổng doanh thu

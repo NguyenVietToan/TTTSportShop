@@ -39,6 +39,7 @@
 
 @endsection
 
+
 @section('custom javascript')
 <script type="text/javascript">
 	$(document).ready(function() {
