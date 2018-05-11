@@ -92,7 +92,7 @@
                                     </p>
                                 </li>
                                 <!-- Menu Footer-->
-                                <li class="user-footer">
+                                <li class="user-footer" style="background-color: #CCCCCC;">
                                     <div class="pull-left">
                                         <a href="{{ route('admin.getProfile') }}" class="btn btn-default btn-flat">Profile</a>
                                     </div>

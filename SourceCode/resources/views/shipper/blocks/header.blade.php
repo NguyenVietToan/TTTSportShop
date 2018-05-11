@@ -35,7 +35,7 @@
                             </p>
                         </li>
                         <!-- Menu Footer-->
-                        <li class="user-footer">
+                        <li class="user-footer" style="background-color: #cccccc">
                             <div class="pull-left">
                                 <a href="{{ route('shipper.getProfile') }}" class="btn btn-default btn-flat">Profile</a>
                             </div>

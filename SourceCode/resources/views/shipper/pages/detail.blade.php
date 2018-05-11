@@ -20,7 +20,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label" for="">Số điện thoại:</label>
 							<div class="col-md-8">
-								<label for="">{{ '0'.$order->phone }}</label>
+								<label for="">{{ $order->phone }}</label>
 							</div>
 						</div>
 

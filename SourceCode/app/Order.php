@@ -71,7 +71,7 @@ class Order extends Model
             }
             $item->price = $price;
 
-            if ($item->status == 1) {  //sp được giao thành công (detail_status_shipping)
+            if ($item->status == 1) {  //sp được giao thành công (detail_status_shipping), còn đã hủy thì không tính
                 $sum_price  += $item->price * $item->qty;
             }
 
