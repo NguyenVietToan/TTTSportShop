@@ -13,7 +13,7 @@
 
             <div class="form-group">
                 <label>Ngày bắt đầu <span class="asterisk">*</span></label>
-                <input type="text" id="date-option" class="form-control col-md-8" name="start_date" placeholder="Nhập ngày bắt đầu" value="{{ old('start_date')==null ? Date('d/m/20y') : old('start_date') }}">
+                <input type="text" id="date-option" class="form-control col-md-8" name="start_date" placeholder="Nhập ngày bắt đầu" value="{{ old('start_date', isset($shipper) ? $start_date : Date('d/m/20y')) }}">
             </div>
 
             <div class="form-group">
@@ -128,7 +128,7 @@
 
             <div class="form-group">
                 <label>Số điện thoại <span class="asterisk">*</span></label>
-                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" value="{{ old('phone', isset($shipper) ? '0'.$shipper->phone : null) }}">
+                <input type="text" class="form-control" name="phone" placeholder="Nhập số điện thoại" value="{{ old('phone', isset($shipper) ? $shipper->phone : null) }}">
             </div>
 
             <button type="submit" class="btn btn-default functionButton">Sửa</button>
@@ -147,6 +147,7 @@
         $('.mytreeview').removeClass('active');  //loại bỏ active ở cái hiện tại
         $("#account").addClass('active');   //active sang cái mới
         $("#profile").addClass('active');
+        $("#date-option").datepicker({ format : 'dd/mm/yyyy'});
     });
 </script>
 

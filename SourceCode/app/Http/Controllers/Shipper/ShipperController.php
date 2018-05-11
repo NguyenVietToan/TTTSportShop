@@ -63,7 +63,7 @@ class ShipperController extends Controller
 	}
 
 
-	//Hiển thị danh sách đơn hàng chờ xác nhận
+	//Hiển thị danh sách đơn hàng chờ xác nhận từ admin
 	public function getWaitingAccepted () {
 		$shipper = Session::get('member');
 		$shipper_id = $shipper['id'];
@@ -89,7 +89,7 @@ class ShipperController extends Controller
 	}
 
 
-	//Lấy danh sách những đơn hàng được phân công mà chưa giao theo từng shipper
+	//Lấy danh sách những đơn hàng được phân công mà chưa giao; theo từng shipper
 	public function getDeliveriedOrder ($shipper_id) {
 		$data = [
 			'shipper_id'    => $shipper_id,
@@ -192,9 +192,14 @@ class ShipperController extends Controller
 	}
 
 
-	//Lấy chi tiết đơn hàng, sử dụng cho cập nhật của shipper
+	//Lấy chi tiết đơn hàng, sử dụng cho cập nhật trạng thái chuyển hàng của shipper
     public function getShipperUpdateOrderDetail ($id) {
-        $order_details = DB::table('order_details as od')->join('products as p','p.id','=','od.pro_id')->leftJoin('sizes as s', 's.id','=','od.size_id')->select(['od.order_id','p.name','od.pro_id','od.qty','od.status','od.order_id','p.price', 'od.size_id', 's.value'])->where('order_id','=',$id)->get();
+        $order_details = DB::table('order_details as od')
+        						->join('products as p','p.id','=','od.pro_id')
+        						->leftJoin('sizes as s', 's.id','=','od.size_id')
+        						->select(['od.order_id','p.name','od.pro_id','od.qty','od.status','od.order_id','p.price', 'od.size_id', 's.value'])
+        						->where('order_id','=',$id)
+        						->get();
         return $order_details;
     }
 
@@ -228,7 +233,7 @@ class ShipperController extends Controller
 		$order_ids = $request->order_ids;
 		if ($order_ids) {
 			foreach ($order_ids as $item) {
-				//cập nhật trạng thái của phiếu xuất kho từ chưa hoàn thanh lên đã hoàn thành (từ 0 lên 1)
+				//cập nhật trạng thái của phiếu xuất kho từ chưa hoàn thành lên đã hoàn thành (từ 0 lên 1)
 				DB::table('exports')->where('order_id', '=', $item)
 				->update(['status'=>1]);
 			}
@@ -254,6 +259,8 @@ class ShipperController extends Controller
 	{
 		$shipper      = DB::table('members')->where('id', '=', Session::get('member')['id'])->first();
 		$birthday     = explode('-', $shipper->birthday);
+		$start_date	  = explode('-', $shipper->start_date);
+		$str		  = $start_date[2].'/'.$start_date[1].'/'.$start_date[0];
 		$ward         = DB::table('ward')->where('wardid', '=', $shipper->wardid)->first();
 		$wards        = DB::table('ward')->where('districtid', '=', $ward->districtid)->get();
 		$district     = DB::table('district')->where('districtid', '=', $ward->districtid)->first();
@@ -268,6 +275,7 @@ class ShipperController extends Controller
 
 		$data['shipper']      = $shipper;
 		$data['birthday']     = $birthday;
+		$data['start_date']     = $str;
         $data['year_arr']     = Config::get('constants.years');
         $data['month_arr']    = Config::get('constants.months');
         $data['day_arr']      = Config::get('constants.days');
@@ -330,14 +338,17 @@ class ShipperController extends Controller
         if (!empty($request->file('image'))) { //nếu tồn tại file ảnh mới
             $img_ext = $request->file('image')->getClientOriginalExtension();  //lấy phần đuôi mở rộng của file
             if (in_array($img_ext, Config::get('constants.image_valid_extension'))) { //kiểm tra $img_ext có nằm trong tập các đuôi ko (xem trong folder config/constants)
+
+            	//xóa ảnh cũ
+                if (File::exists($img_current)) {
+                    File::delete($img_current);
+                }
+
                 $file_name    = $request->file('image')->getClientOriginalName();
                 $member->image = $file_name;
                 $img = Image::make($request->file('image')->getRealPath());
                 $img->resize(100, 100)->save($img_dir . '/' .  $file_name);
-                //xóa ảnh cũ
-                if (File::exists($img_current)) {
-                    File::delete($img_current);
-                }
+                
             }
         }
 
@@ -372,7 +383,7 @@ class ShipperController extends Controller
         	                    ->update(
         	                    	[
 										'password'    => $newPassword,
-										're_password' => $re_newPassword
+										
         	                    	]
         	                    );
             return redirect()->route('shipper.getProfile')->with(['flash_level' => 'success', 'flash_message' => 'Mật khẩu của bạn đã được cập nhật']);
