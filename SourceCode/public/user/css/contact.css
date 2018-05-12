@@ -69,7 +69,7 @@
 }
 
 .action button.submit:hover, .action button.reset:hover {
-  background-color: #FF9800;
+  background-color: #fb383b;
   color: #fff;
   border: none !important;
 }

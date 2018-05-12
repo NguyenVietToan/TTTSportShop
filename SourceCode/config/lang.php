@@ -49,7 +49,8 @@ return [
 		'update_profile' => 'Cập nhật thông tin cá nhân',
 		'change_password' => 'Đổi mật khẩu',
 		'order_history'      => 'Lịch sử mua hàng',
-		'list_orders'		=> 'Đơn hàng của bạn',
+		'order_list'		=> 'Đơn hàng của bạn',
+		'order_detail'		=> 'Chi tiết đơn hàng',
 		'sort'               => 'Sắp xếp',
 		'category'           => 'Thể loại',
 		'filter_price'       => 'Lọc giá',
@@ -60,7 +61,11 @@ return [
 		'back' => 'Quay lại',
 		'products'           => 'Danh sách sản phẩm',
 		'buy'                => 'Mua ngay',
-		'forget_pwd' => 'Quên mật khẩu'
+		'forget_pwd' => 'Quên mật khẩu',
+		'information' => 'Thông tin',
+		'message'	=>	'Tin nhắn',
+		'subject'	=>	'Chủ đề',
+		'store' => 'Cửa hàng'
 	],
 	'en' => [
 		'login'              => 'Login',
@@ -107,7 +112,8 @@ return [
 		'update_profile' => 'Update Profile',
 		'change_password' => 'Change Password',
 		'order_history'      => 'Order History',
-		'list_orders'		=> 'Your Orders',
+		'order_list'		=> 'Order List',
+		'order_detail'		=> 'Order Detail',
 		'sort'               => 'Sort by',
 		'category'           => 'Categories',
 		'filter_price'       => 'Filter by price',
@@ -118,6 +124,10 @@ return [
 		'back' => 'Back',
 		'products'           => 'Products',
 		'buy'                => 'Buy now',
-		'forget_pwd' => 'Forget Password'
+		'forget_pwd' => 'Forget Password',
+		'information' => 'Information',
+		'message'	=>	'Message',
+		'subject'	=>	'Subject',
+		'store' => 'Store'
 	]
 ];

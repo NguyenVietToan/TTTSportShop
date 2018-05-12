@@ -6,7 +6,7 @@
         <ul class="breadcrumb">
             <li><a href="{{ url('trang-chu') }}"><i class="fa fa-home" aria-hidden="true"></i> {{ (session('lang'))?Config::get('lang.'.session('lang'))['home_page']:Config::get('lang.vi')['home_page'] }}</a></li>
             <li><a href="{{ route('getAccount') }}">{{ (session('lang'))?Config::get('lang.'.session('lang'))['account_management']:Config::get('lang.vi')['account_management'] }}</a></li>
-            <li class="active">Đơn hàng của bạn</li>
+            <li class="active">{{ (session('lang'))?Config::get('lang.'.session('lang'))['order_list']:Config::get('lang.vi')['order_list'] }}</li>
         </ul>
         <!-- /.breadcrums -->
 
@@ -14,7 +14,7 @@
         <div class="row">
             @include('user.profile.left_menu')
             <div class="col-xs-12 col-sm-6 col-md-7 col-md-push-1">
-                <h2 class="title text-center" style="margin: 0 0 30px;">Đơn hàng của bạn</h2>
+                <h2 class="title text-center" style="margin: 0 0 30px;">{{ (session('lang'))?Config::get('lang.'.session('lang'))['order_list']:Config::get('lang.vi')['order_list'] }}</h2>
 
                 @if (count($orders) == 0 )
                     <span>Bạn không có đơn hàng nào</span>
@@ -37,7 +37,7 @@
                                     <td>{{ $stt++ }}</td>
                                     <td>{{ Date('d/m/Y', strtotime($order->date_order)) }}</td>
                                     <td>{{ $order->full_address }}</td>
-                                    <td>{{ $order->total }}</td>
+                                    <td>{{ number_format($order->total, 0, ',', '.') }}</td>
                                     <td>{!! Config::get('constants.status_orders')[$order->status_order] !!}</td>
                                     <td><a href="{{ route('getOrderDetail', $order->id) }}">Chi tiết </a></td>
                                 </tr>
