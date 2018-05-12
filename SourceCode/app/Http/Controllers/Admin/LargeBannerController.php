@@ -49,7 +49,7 @@ class LargeBannerController extends Controller
 			mkdir($thn_dir);
 		}
 		$img = Image::make($request->file('fImages')->getRealPath());
-		$img->resize(1000, 400)->save($lg_dir . '/' .  $img_name);
+		$img->resize(1680, 750)->save($lg_dir . '/' .  $img_name);
 		$img->resize(250, 100)->save($thn_dir . '/' .  $img_name);
 		$large_banner->image = $img_name;
 		$large_banner->save();

@@ -60,18 +60,19 @@
 			<div class="slider">
 				<div class="callbacks_container">
 					<ul class="rslides callbacks callbacks1" id="slider4">
-
+						@foreach ($large_banners as $large_banner)
 						<li>
-							<div class="banner-top2">
+							<div class="banner-top" style="background-image: url('{{ asset("resources/upload/images/banner/largebanner/large/".$large_banner->id."/".$large_banner->image) }}')">
 								<div class="banner-info-wthree">
-									<h3>Nike</h3>
-									<p>Trải nghiệm tuyệt vời.</p>
+									<h3>{{$large_banner->name}}</h3>
+									<p>{{strip_tags($large_banner->description, 'p')}}</p>
 
 								</div>
 
 							</div>
-						</li>
-						<li>
+						 </li>
+						 @endforeach
+						<!--<li>
 							<div class="banner-top3">
 								<div class="banner-info-wthree">
 									<h3>Heels</h3>
@@ -100,17 +101,17 @@
 								</div>
 
 							</div>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
 			</div>
 			<!-- //slider -->
 			<ul class="top_icons">
-				<li><a href="#"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
-				<li><a href="#"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
-				<li><a href="#"><span class="fa fa-linkedin" aria-hidden="true"></span></a></li>
-				<li><a href="#"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
+				<li><a href="https://www.facebook.com/giaythethaonamnu2Tshoes/"><span class="fa fa-facebook" aria-hidden="true"></span></a></li>
+				<li><a href="https://www.facebook.com/profile.php?id=100009479588425"><span class="fa fa-twitter" aria-hidden="true"></span></a></li>
+				<li><a href="https://www.facebook.com/profile.php?id=100009479588425"><span class="fa fa-linkedin" aria-hidden="true"></span></a></li>
+				<li><a href="https://www.youtube.com/channel/UCAHurdWOD06LTUTA14ONcpg"><span class="fa fa-google-plus" aria-hidden="true"></span></a></li>
 
 			</ul>
 		</div>
@@ -306,25 +307,25 @@
 				<p>Shop chuyên bán giày chính hãng của các thương hiệu nổi tiếng trên thế giới</p>
 				<ul class="social-nav model-3d-0 footer-social social two" style="padding-left: 0px;">
 					<li>
-						<a href="#" class="facebook">
+						<a href="https://www.facebook.com/giaythethaonamnu2Tshoes/" class="facebook">
 							<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="twitter">
+						<a href="https://www.facebook.com/profile.php?id=100009479588425" class="twitter">
 							<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="instagram">
+						<a href="https://www.facebook.com/profile.php?id=100009479588425" class="instagram">
 							<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="pinterest">
+						<a href="https://www.youtube.com/channel/UCAHurdWOD06LTUTA14ONcpg" class="pinterest">
 							<div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
 						</a>

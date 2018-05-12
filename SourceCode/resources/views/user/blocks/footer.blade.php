@@ -5,25 +5,25 @@
 				<p>Shop chuyên bán giày chính hãng của các thương hiệu nổi tiếng trên thế giới</p>
 				<ul class="social-nav model-3d-0 footer-social social two">
 					<li>
-						<a href="#" class="facebook">
+						<a href="https://www.facebook.com/giaythethaonamnu2Tshoes/" class="facebook">
 							<div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="twitter">
+						<a href="https://www.facebook.com/profile.php?id=100009479588425" class="twitter">
 							<div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="instagram">
+						<a href="https://www.facebook.com/profile.php?id=100009479588425" class="instagram">
 							<div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
 						</a>
 					</li>
 					<li>
-						<a href="#" class="pinterest">
+						<a href="https://www.youtube.com/channel/UCAHurdWOD06LTUTA14ONcpg" class="pinterest">
 							<div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
 							<div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
 						</a>

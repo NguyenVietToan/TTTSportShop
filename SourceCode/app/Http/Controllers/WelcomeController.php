@@ -149,7 +149,12 @@ class WelcomeController extends Controller {
 
 	//Gọi trang giới thiệu mở đầu
 	public function introIndex(){
-		return view('user.index');
+
+		//Đổ banner lớn ra
+		$large_banners = DB::table('large_banners')->where('display', '=', '1')->orderBy('id', 'asc')->take(4)->get();
+		//Truyền dữ liệu sang view
+		$data['large_banners']    = $large_banners;
+		return view('user.index', $data);
 	}
 
 	//Đổ dữ liệu ra trang chủ
