@@ -9,6 +9,7 @@ use App\OrderDetail;
 use App\Province;
 use App\Ward;
 use App\Size;
+use App\SaleCode;
 use App\ProductProperty;
 use Auth;
 use Cart;
@@ -48,6 +49,28 @@ class CheckoutController extends Controller
         return view('user.checkout.delivery_address', $data);
     }
 
+    public function checkSaleCode(Request $request)
+    {
+        $sale_code = SaleCode::where('salecode', $request->salecode)->first();
+        if(empty($sale_code))
+            return response()->json([
+                'state' =>0,
+                'msg'   => 'Mã giảm giá không hợp lệ'
+                ]);
+        if($sale_code->used == 1)
+            return response()->json([
+                'state' =>0,
+                'msg'   => 'Mã giảm giá đã sử dụng'
+                ]);
+        $data = $sale_code;
+        return response()->json([
+            'state' =>1,
+            'msg'   => 'Thành công',
+            'data'  => $data
+            ]); 
+
+    }
+
 
     public function checkout(Request $request)
     {
@@ -80,6 +103,11 @@ class CheckoutController extends Controller
             'email'   => $request->email,
             'creator' => 1,
         ];
+
+        $sale_code = SaleCode::where('id', $request->salecode_id)->first();
+        $sale_code->used=1;
+        $sale_code->save();
+
         $order = new Order;
         $order_data = [
             'date_order'       => Date('20y-m-d'),
@@ -87,7 +115,8 @@ class CheckoutController extends Controller
             'status_order'     => 0,
             'creator'          => 1,
             'ship_fee'         => 0,
-            'wardid'           => $request->ward
+            'wardid'           => $request->ward,
+            'salecode_id'      => $request->salecode_id
         ];
 
         if(Auth::check()){

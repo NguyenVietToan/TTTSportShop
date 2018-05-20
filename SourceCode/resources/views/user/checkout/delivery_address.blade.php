@@ -27,7 +27,7 @@
 				@else
 			  		<div class="row">
 						<div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
-							<div class="your-order">
+							<div class="your-order" style="height: 310px;">
 								<h5 class="your-order-head">Đơn hàng của quý khách <a href="{{ route('getCartInfo') }}" class="backtocart">Chỉnh sửa</a></h5>
 								<div class="your-order-body" style="padding: 15px 20px 60px;">
 									<table class="table table-striped table-bordered">
@@ -54,11 +54,23 @@
 						            </table>
 						            <div class="col-xs-12 col-sm-12 col-md-8 col-lg-8 pull-right">
 						            	<table class="table table-striped table-bordered table2">
+						            		<tr>
+								                <td><span class="total-amount"><b>Mã giảm giá:</b></span></td>
+								                <td><span class="total-amount pull-right"><input type="text" class="form-control" name="salecode" placeholder="Nhập mã nếu có"></span></td>
+								               <input type="hidden" name="salecode_id">
+							              	</tr>
+							              	<tr>
+								                <td><span class="total-amount"></span></td>
+								                <td><button type="button" class="btn btn-defaul apply" >Áp dụng</button></td>
+							              	</tr>
 					      					<tr>
 								                <td><span class="total-amount"><b>Tổng tiền:</b></span></td>
-								                <td><span class="total-amount pull-right"><b>{{ $total }} VNĐ</b></span></td>
+								                <td><span class="total-amount pull-right total-text" style="color: red; font-size: 16px;"><b><span id="total-money">{{ $total }}</span> VNĐ</b></span></td>
 							              	</tr>
 							            </table>
+							            <div class="sale-noti">
+							            	<div class="noti-text alert"></div>
+							            </div>
 						            </div>
 								</div>
 							</div>
@@ -187,3 +199,40 @@
 </div>
 
 @endsection
+@section('custom javascript')
+	<script>
+		$(function(){
+			$('.apply').on('click', function(){
+				$('input[name="salecode_id"]').val('');
+				var salecode = $('input[name="salecode"]').val();
+				var url = "{!! route('checkSaleCode') !!}";
+				$('.noti-text').show();
+				$('.noti-text').removeClass("alert-danger");
+				$('.noti-text').removeClass("alert-success");
+				$.ajax({
+					type: 'GET',
+					url: url,
+					dataType: 'json',
+					data:{
+						salecode: salecode
+					}
+				}).done(function(response){
+					var alert_class = 'alert-danger';
+					var noti_text = response.msg;
+					if(response.state){
+						alert_class = 'alert-success';
+						var current_total = parseInt($('#total-money').text().split('.').join(''));
+						var sale_percent = parseInt(response.data.salepercent);
+						var total_money = Math.round(current_total * (100 - sale_percent)/100);
+						total_money = total_money.toFixed().replace(/(\d)(?=(\d{3})+(,|$))/g, '$1.');
+						$('#total-money').text(total_money);
+						$('input[name="salecode_id"]').val(response.data.id);
+					}
+					$('.noti-text').addClass(alert_class);
+					$('.noti-text').text(noti_text);
+					$('.noti-text').slideUp(2000);
+				});
+			});
+		});
+	</script>
+@stop

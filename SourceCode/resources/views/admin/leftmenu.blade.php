@@ -110,6 +110,13 @@
                     <li id="listshipping"><a href="{{ route('admin.shipping.getList') }}"><i class="fa fa-circle-o"></i>Phân công giao hàng</a></li>
                 </ul>
             </li>
+            
+            <li class="mytreeview" id="salecode">
+                <a href="{{ route('admin.salecode.getList') }}">
+                    <i class="fa fa-barcode"></i>
+                    <span>Quản lý mã giảm giá</span>
+                </a>
+            </li>
 
             <li class="mytreeview" id="statistic">
                 <a href="{{ route('admin.statistic.getTimeStatistic') }}">

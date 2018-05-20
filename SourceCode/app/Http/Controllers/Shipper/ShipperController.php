@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use Session;
 use App\Member;
 use App\Order;
+use App\SaleCode;
 use DB, Auth, Config, Image, File;
 
 
@@ -130,7 +131,7 @@ class ShipperController extends Controller
 		//Lấy ra tất cả đơn hàng chưa được chuyển hàng xong của shipper
 		$orders = DB::table('orders')
 		          ->join('exports','orders.id','=','exports.order_id')
-		          ->select(['orders.customer_id', 'orders.wardid', 'orders.delivery_address', 'exports.status', 'orders.status_order', 'orders.date_order', 'exports.order_id'])
+		          ->select(['orders.customer_id', 'orders.wardid', 'orders.delivery_address', 'exports.status', 'orders.status_order', 'orders.date_order', 'orders.salecode_id','exports.order_id'])
 		          ->where('exports.shipper_id', '=', $data['shipper_id']);
 		if (isset($data['export_status'])) {
 			$orders = $orders->where('exports.status', '=', $data['export_status']);
@@ -156,9 +157,16 @@ class ShipperController extends Controller
 				$sum_price += $price*$sub_item->qty;
             }
 
+            $sale_percent = 0;
+            if(!empty($item->salecode_id)){
+                $salecode = SaleCode::find($item->salecode_id);
+                if(!empty($salecode)){
+                    $sale_percent = $salecode->salepercent;
+                }
+            }
 			$item->customer  = $customer_name;
 			$item->location  = $str_locate;
-			$item->sum_price = $sum_price;
+			$item->sum_price = $sum_price * (100-$sale_percent)/100;
         }
         return $orders;
 	}

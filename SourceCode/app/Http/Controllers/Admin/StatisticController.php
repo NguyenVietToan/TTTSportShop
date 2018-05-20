@@ -6,6 +6,7 @@ use App\Brand;
 use App\Category;
 use App\Http\Controllers\Controller;
 use App\Sport;
+use App\SaleCode;
 use DB;
 use Illuminate\Http\Request;
 
@@ -29,7 +30,7 @@ class StatisticController extends Controller
 
         //Sản phẩm bán được
         $productSales  = DB::table('products as p')
-                        ->select(['p.id', 'p.name', 'p.price', 'p.sale_price', 'p.import_price', DB::raw('sum(od.qty) as sum_qty')])
+                        ->select(['p.id', 'p.name', 'p.price', 'p.sale_price', 'p.import_price', 'o.salecode_id', DB::raw('sum(od.qty) as sum_qty')])
                         ->join('order_details as od', 'od.pro_id', '=', 'p.id')
                         ->join('orders as o', 'o.id', '=', 'od.order_id')
                         ->where('od.status', '=', 1)  //các sp được giao thành công
@@ -45,25 +46,34 @@ class StatisticController extends Controller
         if (!empty($data['brand_id'])) {
             $productSales = $productSales->where('p.brand_id', '=', $data['brand_id']);
         }
-        $productSales = $productSales->groupBy(['p.id', 'p.name', 'p.price', 'p.sale_price', 'p.import_price'])
+        $productSales = $productSales->groupBy(['p.id', 'p.name', 'p.price', 'p.sale_price', 'p.import_price', 'o.salecode_id'])
             ->get();    
 
         $profit  = 0; //tổng lợi nhuận
         $revenue = 0; //tổng doanh thu
-        $sumQty  = 0; //tổng số lượng bán được
+        $sumQty  = 0; //tổng số lượng sp bán được
 
         foreach ($productSales as $productSale) {
             $price = $productSale->price;
             if ($productSale->sale_price) {
                 $price = $productSale->sale_price;
             }
+
+            $sale_percent = 0;
+            if(!empty($productSale->salecode_id)){
+                $salecode = SaleCode::find($productSale->salecode_id);
+                if(!empty($salecode)){
+                    $sale_percent = $salecode->salepercent;
+                }
+            }
+
             $productSale->profitOne = $price - $productSale->import_price;  //lãi trên 1 sp
             $tmpRevenue             = $price * $productSale->sum_qty;
             $tmpProfit              = ($price - $productSale->import_price) * $productSale->sum_qty;
-            $productSale->revenue   = $tmpRevenue;
-            $productSale->profit    = $tmpProfit;
-            $revenue                += $tmpRevenue;
-            $profit                 += $tmpProfit;
+            $productSale->revenue   = $tmpRevenue * (100 - $sale_percent)/100;
+            $productSale->profit    = $tmpProfit * (100 - $sale_percent)/100;
+            $revenue                += $tmpRevenue * (100 - $sale_percent)/100;
+            $profit                 += $tmpProfit * (100 - $sale_percent)/100;
             $sumQty                 += $productSale->sum_qty;
         }
         $data = [

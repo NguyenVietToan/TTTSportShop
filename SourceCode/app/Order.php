@@ -6,13 +6,14 @@ use DB;
 use Illuminate\Database\Eloquent\Model;
 use App\Export;
 use App\Member;
+use App\SaleCode;
 
 
 class Order extends Model
 {
     protected $table = 'orders';
 
-    protected $fillable = ['id', 'date_order', 'delivery_address', 'status_order', 'creator', 'ship_fee', 'customer_id', 'wardid', 'created_at', '  updated_at'];
+    protected $fillable = ['id', 'date_order', 'delivery_address', 'status_order', 'creator', 'ship_fee', 'customer_id', 'wardid', 'salecode_id', 'created_at', '  updated_at'];
 
     public function oder_detail ()
     {
@@ -49,6 +50,14 @@ class Order extends Model
                 }
                 $item->sum_price += $price*$order_detail->qty;
             }
+            $sale_percent = 0;
+            if(!empty($item->salecode_id)){
+                $salecode = SaleCode::find($item->salecode_id);
+                if(!empty($salecode)){
+                    $sale_percent = $salecode->salepercent;
+                }
+            }
+            $item->sum_price = $item->sum_price * (100-$sale_percent)/100;
         }
         return $orders;
     }
@@ -82,7 +91,16 @@ class Order extends Model
             }
         }
         $order->data       = $order_details;
-        $order->sum_price  = $sum_price;
+
+        $sale_percent = 0;
+        if(!empty($order->salecode_id)){
+            $salecode = SaleCode::find($order->salecode_id);
+            if(!empty($salecode)){
+                $sale_percent = $salecode->salepercent;
+            }
+        }
+
+        $order->sum_price  = $sum_price * (100-$sale_percent)/100;
         $order->str_locate = $order->delivery_address . ' - ' . $this->getDeliveryAddress($order->wardid);
         return $order;
     }

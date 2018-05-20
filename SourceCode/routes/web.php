@@ -230,6 +230,8 @@ Route::get('dia-chi-thanh-toan', ['as' => 'getDeliveryAddress', 'uses' => 'Check
 
 Route::post('thanh-toan', ['as' => 'checkout', 'uses' => 'CheckoutController@checkout']);
 
+Route::get('kiem-tra-ma-giam-gia', ['as' => 'checkSaleCode', 'uses' => 'CheckoutController@checkSaleCode']);
+
 
 // ---------------------------------------------------------------------------
 //LIÊN HỆ

@@ -7,6 +7,7 @@ use App\District;
 use App\Http\Controllers\Controller;
 use App\Order;
 use App\OrderDetail;
+use App\SaleCode;
 use App\Product;
 use App\ProductProperty;
 use App\Province;

@@ -342,6 +342,21 @@ Route::group(['prefix' => 'admin', 'middleware' => 'admin'], function() {
 
     //--------------------------------------------------------------------------------------------------
 
+    //Quản lý mã giảm giá
+    Route::group(['prefix'=>'salecode'], function(){
+        Route::get('list',['as'=>'admin.salecode.getList','uses'=>'Admin\SalecodeController@getList']);
+        
+        Route::get('add', ['as' => 'admin.salecode.getAdd', 'uses' => 'Admin\SalecodeController@getAdd']);
+        Route::post('add', ['as' => 'admin.salecode.postAdd', 'uses' => 'Admin\SalecodeController@postAdd']);
+
+        Route::get('delete/{id}', ['as' => 'admin.salecode.getDelete', 'uses' => 'Admin\SalecodeController@getDelete']);
+        Route::post('delete', ['as' => 'admin.salecode.postDelete', 'uses' => 'Admin\SalecodeController@postDelete']);
+    });
+
+    //--------------------------------------------------------------------------------------------------
+
+
+
     //Thống kê bán hàng
     Route::group(['prefix'=>'statistic'], function(){
         Route::get('time-statistic',['as'=>'admin.statistic.getTimeStatistic','uses'=>'Admin\StatisticController@getTimeStatistic']);
