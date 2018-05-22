@@ -66,7 +66,7 @@
                     <div class="form-group">
                         <span class="col-md-3" for="">{{ (session('lang'))?Config::get('lang.'.session('lang'))['phone']:Config::get('lang.vi')['phone'] }}</span>
                         <div class="col-md-8">
-                          <span for="">0{{ Auth::user()->phone }}</span>
+                          <span for="">{{ Auth::user()->phone }}</span>
                         </div>
                     </div>
                 </div>

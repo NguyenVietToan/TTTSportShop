@@ -77,6 +77,7 @@ class FrontNewsController extends Controller
 		            ->join('news', 'news.id', '=', 'cm.news_id')
 		            ->where('cm.news_id', '=', $id)
 		            ->get();
+		         
 
 		$data['news']         = $news;
 		$data['similar_news'] = $similar_news;

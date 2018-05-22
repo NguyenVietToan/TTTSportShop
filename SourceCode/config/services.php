@@ -35,18 +35,17 @@ return [
         'secret' => env('STRIPE_SECRET'),
     ],
 
-/*
+
     'facebook' => [
-        'client_id' => '259596271235378',
-        'client_secret' => '6c4305aebaa502093c15a0ba18d0fa34',
-        'redirect' => 'http://localhost:8080/CongDATN/auth/login/facebook/callback',
+        'client_id' => '2141860202699939',
+        'client_secret' => '68a9e38be890367f3a18fbbd948aae1e',
+        'redirect' => 'https://localhost/TTTSportShop/SourceCode/auth/login/facebook/callback',
     ],
 
     'google' => [
-        'client_id' => '1021682225877-kj0f0blsfpj3g7l70pf5717r6vo9514t.apps.googleusercontent.com',
-        'client_secret' => 'HDznHYOutqxU4aaMAcI8xavG',
-        'redirect' => 'http://localhost:8080/CongDATN/auth/login/google/callback',
+        'client_id' => '692592894452-ol79fusrnh62ud8priof70mvj6mjknp3.apps.googleusercontent.com',
+        'client_secret' => 'VVLZVV1aycyT77BeW0LBRAhF',
+        'redirect' => 'https://localhost/TTTSportShop/SourceCode/auth/login/google/callback',
     ],
-*/
 
 ];

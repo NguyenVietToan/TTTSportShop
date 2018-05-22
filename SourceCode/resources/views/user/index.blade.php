@@ -72,36 +72,7 @@
 							</div>
 						 </li>
 						 @endforeach
-						<!--<li>
-							<div class="banner-top3">
-								<div class="banner-info-wthree">
-									<h3>Heels</h3>
-									<p>Phù hợp mọi tầng lớp.</p>
-
-								</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="banner-top">
-								<div class="banner-info-wthree">
-									<h3>Sneakers</h3>
-									<p>Mang lại đẳng cấp thời trang.</p>
-
-								</div>
-
-							</div>
-						</li>
-						<li>
-							<div class="banner-top1">
-								<div class="banner-info-wthree">
-									<h3>Adidas</h3>
-									<p>Hành trang cuộc sống.</p>
-
-								</div>
-
-							</div>
-						</li> -->
+						
 					</ul>
 				</div>
 				<div class="clearfix"> </div>
@@ -130,7 +101,7 @@
 					<h3>Nike DOWNSHIFTER</h3>
 					<p>Nike là một trong những thương hiệu giày hàng đầu thế giới được thành lập vào năm 1964. Đến nay đã tung ra hàng chục siêu phẩm đình đám như Nike LunarGlide, Nike Downshifter, Nike Kyrie... đều được đưa vào danh sách những đôi giày được yêu thích nhất.</p>
 					<div class="shop-button">
-						<a href="shop.html">Xem thêm</a>
+						<a href="{{ URL('thuong-hieu/nike') }}">Xem thêm</a>
 					</div>
 				</div>
 			</div>
@@ -154,7 +125,7 @@
 						<h3>Heels</h3>
 						<p>Đối với nữ doanh nhân, lợi thế của những đôi giày cao gót rất rõ rệt, khiến nó trở thành trợ thủ đắc lực trong việc làm đẹp hàng ngày của chị em, nổi trội hơn, tự tin hơn và thành công nhiều hơn trong kinh doanh.</p>
 						<div class="shop-button">
-							<a href="shop.html">Xem thêm</a>
+							<a href="{{ URL('thuong-hieu/christian-louboutin') }}">Xem thêm</a>
 						</div>
 					</div>
 				</div>
@@ -178,7 +149,7 @@
 						<h3>Giày tây</h3>
 						<p>Giày tây được phái mạnh yêu thích với phong cách lịch lãm, sang trọng và hiện đại. Giày tây nam phù hợp với nơi công sở hay gặp mặt đối tác, khẳng định vị thế quý ông. Dòng giày nam cao cấp này được ưa chuộng từ kiểu dáng tới chất liệu.</p>
 						<div class="shop-button two">
-							<a href="shop.html">Xem thêm</a>
+							<a href="{{ URL('thuong-hieu/gucci') }}">Xem thêm</a>
 						</div>
 					</div>
 				</div>

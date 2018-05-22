@@ -70,10 +70,12 @@
 	            	@foreach ($comments as $comment)
 	            		<div class="media" style="margin-top: 7px;">
 			                <a class="pull-left" href="#">
-			                	@if ($comment->user_avatar == null)
+			                	@if (!$comment->user_avatar)
+
 			                		<img class="media-object" src="{{ asset('public/user/images/default-user.png') }}" alt="" width="64px">
 			                	@else
-			                		<img class="media-object" src="{{ asset('resources/upload/images/user/'.Auth::id().'/'.Auth::user()->avatar) }}" alt="">
+			                	
+			                		<img class="media-object" src="{{ asset('resources/upload/images/user/'.$comment->user_id.'/'.$comment->user_avatar) }}" alt="">
 			                	@endif
 			                </a>
 			                <div class="media-body">
@@ -82,6 +84,7 @@
 			                    </h4>
 			                    {{ $comment->content }}
 			                </div>
+
 		            	</div>
 	            	@endforeach
 	            </div>

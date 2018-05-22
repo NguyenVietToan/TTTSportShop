@@ -77,6 +77,12 @@ class SocialController extends Controller
                 $u = new User;
                 $u->email = $user->getEmail();
                 $u->name = $user->getName();
+                 $u->wardid = '00277';
+                 $u->address = 'Số 1';
+                $u->phone = '01666343999';
+                $u->birthday = '1990-1-1';
+                $u->gender = 1;
+                $u->status = 1;
                 $u->save();
             }
             $userSocial = new UserSocial;
@@ -116,6 +122,12 @@ class SocialController extends Controller
                 $u = new User;
                 $u->email = $user->getEmail();
                 $u->name = $user->getName();
+                $u->wardid = '00277';
+                $u->address = 'Số 1';
+                $u->phone = '01666343999';
+                $u->birthday = '1990-1-1';
+                $u->gender = 1;
+                $u->status = 1;
                 $u->save();
             }
             $userSocial = new UserSocial;
